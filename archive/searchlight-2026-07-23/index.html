@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Searchlight Automations - The Definitive AI Growth Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ═══════════════════════════════════════
+           RESET & CUSTOM PROPERTIES
+        ═══════════════════════════════════════ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --canvas: #F7F6F3;
+            --surface: #FFFFFF;
+            --text-primary: #1a1a1a;
+            --text-secondary: #2a2a28;
+            --text-tertiary: #3d3d3a;
+            --border: rgba(0, 0, 0, 0.06);
+            --border-solid: #e8e5e0;
+            --accent: #1a1a1a;
+            --spot: #e8650a;
+            --spot-bg: rgba(232, 101, 10, 0.1);
+            --spot-light: #fde8d0;
+            --surface-hover: rgba(0, 0, 0, 0.02);
+            --font-display: 'Instrument Serif', serif;
+            --font-body: 'Outfit', sans-serif;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--canvas);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        ::selection {
+            background: var(--spot);
+            color: var(--surface);
+        }
+
+        /* ═══════════════════════════════════════
+           GRAIN TEXTURE (fixed, pointer-events-none)
+        ═══════════════════════════════════════ */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.018;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 128px 128px;
+        }
+
+        /* ═══════════════════════════════════════
+           FLOATING PILL NAVIGATION
+        ═══════════════════════════════════════ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 24px 40px;
+            transition: padding 0.6s var(--ease-out-expo);
+        }
+
+        header.scrolled {
+            padding: 14px 40px;
+        }
+
+        .nav-pill {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border-solid);
+            border-radius: 100px;
+            padding: 10px 12px 10px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.03);
+            transition: all 0.6s var(--ease-out-expo);
+        }
+
+        header.scrolled .nav-pill {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+        }
+
+        .logo {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--spot);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: var(--surface);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.82rem;
+            letter-spacing: 0.3px;
+            border-radius: 100px;
+            transition: all 0.4s var(--ease-out-expo);
+            border: none;
+        }
+
+        .nav-cta:hover {
+            background: #333;
+            transform: scale(0.98);
+        }
+
+        .nav-cta:active {
+            transform: scale(0.96);
+        }
+
+        .nav-cta .cta-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            transition: transform 0.3s var(--ease-out-expo);
+        }
+
+        .nav-cta:hover .cta-arrow {
+            transform: translateX(2px);
+        }
+
+        .nav-cta .cta-arrow svg {
+            width: 11px;
+            height: 11px;
+        }
+
+        /* ═══════════════════════════════════════
+           HERO SECTION — CENTERED WITH VIDEO BG
+        ═══════════════════════════════════════ */
+        .hero {
+            min-height: 100dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Video background */
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-video-mask {
+            display: none;
+        }
+
+        .hero-container {
+            max-width: 860px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 9px 20px 9px 14px;
+            background: rgba(247, 246, 243, 0.35);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(232, 229, 224, 0.4);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--spot);
+            margin-bottom: 36px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--spot);
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 5.5vw, 5.6rem);
+            font-weight: 400;
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 32px;
+            max-width: 820px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero h1 i {
+            font-style: italic;
+            color: var(--spot);
+        }
+
+        .hero-bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            max-width: 540px;
+            font-weight: 400;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 22px 18px 36px;
+            background: var(--accent);
+            color: var(--surface);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.92rem;
+            border-radius: 100px;
+            transition: all 0.5s var(--ease-out-expo);
+            white-space: nowrap;
+        }
+
+        .hero-cta:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .hero-cta:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .hero-cta .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .hero-cta:hover .btn-icon {
+            transform: translateX(3px) scale(1.05);
+            background: rgba(255, 255, 255, 0.18);
+        }
+
+        .hero-cta .btn-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .hero-scroll-hint {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-primary);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 2;
+            padding: 8px 16px;
+            background: rgba(247, 246, 243, 0.35);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(232, 229, 224, 0.4);
+            border-radius: 100px;
+        }
+
+        .hero-scroll-hint::after {
+            display: none;
+        }
+
+        /* ═══════════════════════════════════════
+           EXPLODING VIEW — SCROLL-DRIVEN
+        ═══════════════════════════════════════ */
+        .exploding-scroll {
+            position: relative;
+            height: 400vh;
+        }
+
+        .exploding-sticky {
+            position: sticky;
+            top: 0;
+            height: 100dvh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            will-change: transform;
+        }
+
+        .exploding-media-wrap {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .exploding-media-wrap video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .exploding-media-wrap canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Inward masking gradient */
+        .exploding-mask {
+            display: none;
+        }
+
+        /* Text overlay cards */
+        .exploding-overlays {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 680px;
+            padding: 0 40px;
+        }
+
+        .exploding-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            opacity: 0;
+            filter: blur(6px);
+            transition: opacity 0.5s var(--ease-out-expo), filter 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+            pointer-events: none;
+            padding: 48px 44px;
+            background: rgba(247, 246, 243, 0.35);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(232, 229, 224, 0.4);
+            border-radius: 20px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.02);
+        }
+
+        .exploding-card.active {
+            opacity: 1;
+            filter: blur(0);
+            transform: translate(-50%, -50%) translateY(0);
+            pointer-events: auto;
+        }
+
+        .exploding-card-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 18px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(232, 229, 224, 0.5);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--spot);
+            margin-bottom: 20px;
+        }
+
+        .exploding-card h3 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 400;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .exploding-card p {
+            font-size: 1rem;
+            line-height: 1.85;
+            color: var(--text-primary);
+            font-weight: 400;
+        }
+
+        /* Scroll progress indicator */
+        .exploding-progress {
+            position: absolute;
+            right: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .exploding-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border-solid);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .exploding-dot.active {
+            background: var(--spot);
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 768px) {
+            .exploding-scroll {
+                height: 300vh;
+            }
+
+            .exploding-card {
+                padding: 28px 24px;
+                max-width: 88%;
+                border-radius: 16px;
+            }
+
+            .exploding-card h3 {
+                font-size: 1.4rem;
+                letter-spacing: -0.5px;
+            }
+
+            .exploding-card p {
+                font-size: 0.88rem;
+            }
+
+            .exploding-card-eyebrow {
+                font-size: 0.58rem;
+            }
+
+            .exploding-progress {
+                right: 14px;
+            }
+
+            .exploding-dot {
+                width: 6px;
+                height: 6px;
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           SOCIAL PROOF TICKER
+        ═══════════════════════════════════════ */
+        .social-proof {
+            padding: 36px 0;
+            border-top: 1px solid var(--border-solid);
+            border-bottom: 1px solid var(--border-solid);
+            overflow: hidden;
+        }
+
+        .social-proof-title {
+            text-align: center;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3.5px;
+            color: var(--text-tertiary);
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+
+        .logo-scroll-container {
+            overflow: hidden;
+            mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+        }
+
+        .logo-grid {
+            display: inline-flex;
+            gap: 72px;
+            align-items: center;
+            animation: tickerScroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-33.333%); }
+        }
+
+        .logo-grid-item {
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+            opacity: 0.7;
+            transition: opacity 0.4s ease;
+            user-select: none;
+        }
+
+        .logo-grid-item:hover {
+            opacity: 1;
+        }
+
+        /* ═══════════════════════════════════════
+           SHARED SECTION STYLES
+        ═══════════════════════════════════════ */
+        section.content-section {
+            padding: 160px 60px;
+        }
+
+        .section-container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header-split {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: end;
+            margin-bottom: 100px;
+        }
+
+        .section-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--spot);
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .section-eyebrow::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--spot);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 4.5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+        }
+
+        .section-description {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* ═══════════════════════════════════════
+           PROCESS SECTION
+        ═══════════════════════════════════════ */
+        .process-section {
+            background: var(--surface);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--border-solid);
+        }
+
+        .process-step {
+            padding: 56px 44px 56px 0;
+            border-right: 1px solid var(--border-solid);
+            transition: background 0.5s var(--ease-out-expo);
+            position: relative;
+        }
+
+        .process-step:last-child {
+            border-right: none;
+        }
+
+        .process-step:not(:first-child) {
+            padding-left: 44px;
+        }
+
+        .process-step:first-child {
+            padding-left: 0;
+        }
+
+        .process-number {
+            font-family: var(--font-display);
+            font-size: 5.5rem;
+            font-weight: 400;
+            line-height: 1;
+            color: var(--border-solid);
+            margin-bottom: 36px;
+            letter-spacing: -3px;
+            transition: color 0.5s var(--ease-out-expo);
+        }
+
+        .process-step:hover .process-number {
+            color: var(--spot);
+        }
+
+        .process-title {
+            font-family: var(--font-display);
+            font-size: 1.65rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.3;
+            letter-spacing: -0.3px;
+        }
+
+        .process-description {
+            font-size: 0.92rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* ═══════════════════════════════════════
+           SERVICES — ASYMMETRIC BENTO
+        ═══════════════════════════════════════ */
+        .services-section {
+            background: var(--canvas);
+        }
+
+        .services-bento {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+
+        .service-card {
+            position: relative;
+            background: var(--surface);
+            border: 1px solid var(--border-solid);
+            border-radius: 20px;
+            padding: 52px 44px;
+            transition: all 0.5s var(--ease-out-expo);
+            overflow: hidden;
+        }
+
+        /* Double-bezel: inner glow */
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+        }
+
+        .service-card:hover {
+            border-color: var(--border-solid);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-card--featured {
+            grid-row: span 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 56px 48px;
+        }
+
+        .service-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: var(--canvas);
+            border: 1px solid var(--border-solid);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 32px;
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .service-card:hover .service-icon-wrap {
+            background: var(--spot-bg);
+            border-color: var(--spot-light);
+        }
+
+        .service-icon-wrap svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--text-primary);
+            transition: stroke 0.4s var(--ease-out-expo);
+        }
+
+        .service-card:hover .service-icon-wrap svg {
+            stroke: var(--spot);
+        }
+
+        .service-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: var(--spot-bg);
+            color: var(--spot);
+            margin-bottom: 24px;
+        }
+
+        .service-title {
+            font-family: var(--font-display);
+            font-size: 1.65rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            line-height: 1.25;
+            letter-spacing: -0.3px;
+        }
+
+        .service-card--featured .service-title {
+            font-size: 2rem;
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+
+        /* ═══════════════════════════════════════
+           CONTACT / CTA SECTION
+        ═══════════════════════════════════════ */
+        .contact {
+            padding: 180px 60px;
+            text-align: center;
+            background: var(--surface);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-ambient {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--spot-light) 0%, transparent 65%);
+            opacity: 0.35;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .contact-content {
+            max-width: 680px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            font-weight: 400;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .contact h2 i {
+            font-style: italic;
+            color: var(--spot);
+        }
+
+        .contact-description {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            margin-bottom: 52px;
+            font-weight: 300;
+        }
+
+        .contact-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 24px 20px 40px;
+            background: var(--accent);
+            color: var(--surface);
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 100px;
+            transition: all 0.5s var(--ease-out-expo);
+        }
+
+        .contact-cta:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-cta:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .contact-cta .btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            transition: all 0.4s var(--ease-out-expo);
+        }
+
+        .contact-cta:hover .btn-icon {
+            transform: translateX(3px) scale(1.05);
+        }
+
+        .contact-cta .btn-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        /* ═══════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════ */
+        footer {
+            background: var(--canvas);
+            padding: 40px 60px;
+            border-top: 1px solid var(--border-solid);
+        }
+
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-tertiary);
+            font-size: 0.78rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* ═══════════════════════════════════════
+           SCROLL REVEAL (IntersectionObserver)
+        ═══════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            filter: blur(4px);
+            transition: all 0.8s var(--ease-out-expo);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+            filter: blur(0);
+        }
+
+        .reveal-d1 { transition-delay: 80ms; }
+        .reveal-d2 { transition-delay: 160ms; }
+        .reveal-d3 { transition-delay: 240ms; }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE DESIGN
+        ═══════════════════════════════════════ */
+        @media (max-width: 1024px) {
+            .section-header-split {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .services-bento {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .service-card--featured {
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* ── NAV ── */
+            header {
+                padding: 12px 16px;
+            }
+
+            header.scrolled {
+                padding: 8px 16px;
+            }
+
+            .nav-pill {
+                padding: 7px 8px 7px 20px;
+                border-radius: 60px;
+            }
+
+            .logo {
+                font-size: 0.6rem;
+                letter-spacing: 1.5px;
+            }
+
+            .nav-cta {
+                padding: 9px 18px;
+                font-size: 0.72rem;
+                gap: 6px;
+            }
+
+            .nav-cta .cta-arrow {
+                width: 18px;
+                height: 18px;
+            }
+
+            .nav-cta .cta-arrow svg {
+                width: 9px;
+                height: 9px;
+            }
+
+            /* ── HERO ── */
+            .hero {
+                padding: 100px 24px 60px;
+                min-height: 100dvh;
+            }
+
+            .hero-eyebrow {
+                font-size: 0.58rem;
+                letter-spacing: 1.8px;
+                padding: 6px 14px 6px 10px;
+                margin-bottom: 28px;
+                gap: 8px;
+            }
+
+            .hero-eyebrow::before {
+                width: 5px;
+                height: 5px;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.2rem, 9vw, 3.2rem);
+                letter-spacing: -1px;
+                margin-bottom: 28px;
+            }
+
+            .hero-bottom {
+                flex-direction: column;
+                align-items: center;
+                gap: 28px;
+            }
+
+            .hero-description {
+                font-size: 0.95rem;
+                line-height: 1.75;
+                text-align: center;
+            }
+
+            .hero-cta {
+                padding: 16px 20px 16px 28px;
+                font-size: 0.85rem;
+                gap: 10px;
+            }
+
+            .hero-cta .btn-icon {
+                width: 30px;
+                height: 30px;
+            }
+
+            .hero-cta .btn-icon svg {
+                width: 13px;
+                height: 13px;
+            }
+
+            .hero-scroll-hint {
+                display: none;
+            }
+
+            /* ── SOCIAL PROOF ── */
+            .social-proof {
+                padding: 28px 0;
+            }
+
+            .social-proof-title {
+                font-size: 0.58rem;
+                letter-spacing: 2.5px;
+                margin-bottom: 18px;
+            }
+
+            .logo-grid {
+                gap: 48px;
+            }
+
+            .logo-grid-item {
+                font-size: 0.68rem;
+                letter-spacing: 2px;
+            }
+
+            /* ── SECTIONS ── */
+            section.content-section {
+                padding: 80px 24px;
+            }
+
+            .section-header-split {
+                margin-bottom: 60px;
+            }
+
+            .section-eyebrow {
+                font-size: 0.62rem;
+                letter-spacing: 2.5px;
+            }
+
+            .section-title {
+                font-size: clamp(2rem, 7vw, 2.8rem);
+                letter-spacing: -1px;
+            }
+
+            .section-description {
+                font-size: 0.95rem;
+            }
+
+            /* ── PROCESS ── */
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-step {
+                border-right: none;
+                border-bottom: 1px solid var(--border-solid);
+                padding: 36px 0;
+            }
+
+            .process-step:not(:first-child) {
+                padding-left: 0;
+            }
+
+            .process-step:last-child {
+                border-bottom: none;
+            }
+
+            .process-number {
+                font-size: 4rem;
+                margin-bottom: 24px;
+            }
+
+            .process-title {
+                font-size: 1.4rem;
+            }
+
+            .process-description {
+                font-size: 0.88rem;
+            }
+
+            /* ── SERVICES ── */
+            .services-bento {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .service-card--featured {
+                grid-row: span 1;
+            }
+
+            .service-card {
+                padding: 36px 28px;
+                border-radius: 16px;
+            }
+
+            .service-card--featured {
+                padding: 36px 28px;
+            }
+
+            .service-card--featured .service-title {
+                font-size: 1.5rem;
+            }
+
+            .service-icon-wrap {
+                width: 42px;
+                height: 42px;
+                border-radius: 12px;
+                margin-bottom: 24px;
+            }
+
+            .service-icon-wrap svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .service-tag {
+                font-size: 0.58rem;
+                margin-bottom: 18px;
+            }
+
+            .service-title {
+                font-size: 1.35rem;
+                margin-bottom: 12px;
+            }
+
+            .service-description {
+                font-size: 0.88rem;
+            }
+
+            /* ── CONTACT ── */
+            .contact {
+                padding: 80px 24px;
+            }
+
+            .contact h2 {
+                font-size: clamp(2rem, 7vw, 3rem);
+                letter-spacing: -1px;
+            }
+
+            .contact-description {
+                font-size: 0.95rem;
+                margin-bottom: 40px;
+            }
+
+            .contact-cta {
+                padding: 18px 20px 18px 32px;
+                font-size: 0.88rem;
+            }
+
+            .contact-cta .btn-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            /* ── FOOTER ── */
+            footer {
+                padding: 28px 24px;
+            }
+
+            footer p {
+                font-size: 0.72rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-cta .cta-arrow {
+                display: none;
+            }
+
+            .hero-eyebrow {
+                font-size: 0.52rem;
+                letter-spacing: 1.2px;
+            }
+
+            .exploding-card {
+                padding: 24px 20px;
+            }
+
+            .exploding-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .service-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════════════════ HEADER ════════════════ -->
+    <header id="header">
+        <div class="nav-pill">
+            <a href="#" class="logo">Searchlight <span>Automations</span></a>
+            <a href="https://calendly.com/kosta-searchlightautomations/30min" class="nav-cta" target="_blank">
+                Book a Call
+                <span class="cta-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+                </span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ════════════════ HERO ════════════════ -->
+    <section class="hero">
+        <video class="hero-video" id="heroVideo" autoplay muted playsinline>
+            <source src="website lighthouse animation.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-mask"></div>
+        <div class="hero-container">
+            <div class="hero-eyebrow" data-hero-reveal>YOUR TRUSTWORTHY AI GROWTH PARTNER</div>
+            <h1 data-hero-reveal>Illuminate the path.<br>Automate what <i>makes you money.</i></h1>
+            <div class="hero-bottom" data-hero-reveal>
+                <p class="hero-description">For fast-moving B2B companies that need to scale revenue, eliminate bottlenecks, and free their teams to focus on what truly matters. We don't just automate. We transform.</p>
+                <a href="https://calendly.com/kosta-searchlightautomations/30min" class="hero-cta" target="_blank">
+                    Book Your Growth Call
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">Scroll</div>
+    </section>
+
+    <!-- ════════════════ SOCIAL PROOF ════════════════ -->
+    <section class="social-proof">
+        <div class="social-proof-title">POWERED BY INDUSTRY-LEADING PLATFORMS</div>
+        <div class="logo-scroll-container">
+            <div class="logo-grid">
+                <div class="logo-grid-item">MAKE</div>
+                <div class="logo-grid-item">N8N</div>
+                <div class="logo-grid-item">CLICKUP</div>
+                <div class="logo-grid-item">ZAPIER</div>
+                <div class="logo-grid-item">AIRTABLE</div>
+                <div class="logo-grid-item">HUBSPOT</div>
+                <div class="logo-grid-item">SLACK</div>
+                <div class="logo-grid-item">NOTION</div>
+                <div class="logo-grid-item">MAKE</div>
+                <div class="logo-grid-item">N8N</div>
+                <div class="logo-grid-item">CLICKUP</div>
+                <div class="logo-grid-item">ZAPIER</div>
+                <div class="logo-grid-item">AIRTABLE</div>
+                <div class="logo-grid-item">HUBSPOT</div>
+                <div class="logo-grid-item">SLACK</div>
+                <div class="logo-grid-item">NOTION</div>
+                <div class="logo-grid-item">MAKE</div>
+                <div class="logo-grid-item">N8N</div>
+                <div class="logo-grid-item">CLICKUP</div>
+                <div class="logo-grid-item">ZAPIER</div>
+                <div class="logo-grid-item">AIRTABLE</div>
+                <div class="logo-grid-item">HUBSPOT</div>
+                <div class="logo-grid-item">SLACK</div>
+                <div class="logo-grid-item">NOTION</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════ EXPLODING VIEW SCROLL ════════════════ -->
+    <div class="exploding-scroll" id="explodingScroll">
+        <div class="exploding-sticky">
+            <div class="exploding-media-wrap">
+                <video id="explodingVideo" muted playsinline preload="auto">
+                    <source src="exploding-view2.mp4" type="video/mp4">
+                </video>
+                <canvas id="explodingCanvas"></canvas>
+                <div class="exploding-mask"></div>
+            </div>
+
+            <div class="exploding-overlays">
+                <div class="exploding-card" data-card="0">
+                    <div class="exploding-card-eyebrow">Core Offering</div>
+                    <h3>Lead Generation Automation</h3>
+                    <p>Multi-channel outreach systems that find, engage, and qualify prospects automatically, delivering warm leads directly to your sales team.</p>
+                </div>
+                <div class="exploding-card" data-card="1">
+                    <div class="exploding-card-eyebrow">Efficiency Engine</div>
+                    <h3>Workflow Automation</h3>
+                    <p>Eliminate repetitive tasks and manual data entry. We connect your tools, automate processes, and free your team to focus on high-value work.</p>
+                </div>
+                <div class="exploding-card" data-card="2">
+                    <div class="exploding-card-eyebrow">Client Experience</div>
+                    <h3>AI Onboarding Systems</h3>
+                    <p>Intelligent onboarding automation that welcomes new clients, collects essential information, and sets up their accounts, all while delivering a premium, personalized experience.</p>
+                </div>
+            </div>
+
+            <div class="exploding-progress">
+                <div class="exploding-dot" data-dot="0"></div>
+                <div class="exploding-dot" data-dot="1"></div>
+                <div class="exploding-dot" data-dot="2"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════ HOW IT WORKS ════════════════ -->
+    <section class="content-section process-section">
+        <div class="section-container">
+            <div class="section-header-split reveal">
+                <div>
+                    <div class="section-eyebrow">OUR PROCESS</div>
+                    <h2 class="section-title">How we work together</h2>
+                </div>
+                <p class="section-description">A streamlined, transparent process designed to deliver maximum value with minimum friction. No fluff, no filler. Just results.</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-step reveal reveal-d1">
+                    <div class="process-number">01</div>
+                    <h3 class="process-title">Growth Mapping Call</h3>
+                    <p class="process-description">We start with a free 30-minute consultation to understand your business, identify bottlenecks, and map out high-impact automation opportunities. Let's see if we are a good fit to help your business. No sales pitch. Just strategic thinking.</p>
+                </div>
+
+                <div class="process-step reveal reveal-d2">
+                    <div class="process-number">02</div>
+                    <h3 class="process-title">Scope & Strategy</h3>
+                    <p class="process-description">We create a detailed roadmap with clear deliverables, timelines, and success metrics. You'll know exactly what we're building, why it matters, and what results to expect.</p>
+                </div>
+
+                <div class="process-step reveal reveal-d3">
+                    <div class="process-number">03</div>
+                    <h3 class="process-title">Build & Deploy</h3>
+                    <p class="process-description">We build, test, and deploy your automation systems. You get regular updates, full documentation, video training, and written training documents. Then we monitor performance and optimize for maximum impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════ SERVICES ════════════════ -->
+    <section class="content-section services-section">
+        <div class="section-container">
+            <div class="section-header-split reveal">
+                <div>
+                    <div class="section-eyebrow">WHAT WE DO</div>
+                    <h2 class="section-title">Services that drive growth</h2>
+                </div>
+                <p class="section-description">Comprehensive automation solutions tailored to your objectives. We build systems that work while you sleep.</p>
+            </div>
+
+            <div class="services-bento">
+                <!-- Featured card spans 2 rows -->
+                <div class="service-card service-card--featured reveal">
+                    <div>
+                        <div class="service-icon-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.58-5.84a14.927 14.927 0 00-2.58 5.841m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+                        </div>
+                        <div class="service-tag">Core offering</div>
+                        <h3 class="service-title">Lead Generation Automation</h3>
+                    </div>
+                    <p class="service-description">Multi-channel outreach systems that find, engage, and qualify prospects automatically, delivering warm leads directly to your sales team.</p>
+                </div>
+
+                <div class="service-card reveal reveal-d1">
+                    <div class="service-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3 class="service-title">Workflow Automation</h3>
+                    <p class="service-description">Eliminate repetitive tasks and manual data entry. We connect your tools, automate processes, and free your team to focus on high-value work.</p>
+                </div>
+
+                <div class="service-card reveal reveal-d2">
+                    <div class="service-icon-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z"/></svg>
+                    </div>
+                    <h3 class="service-title">AI Onboarding Systems</h3>
+                    <p class="service-description">Intelligent onboarding automation that welcomes new clients, collects essential information, and sets up their accounts, all while delivering a premium, personalized experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════ CONTACT ════════════════ -->
+    <section class="contact">
+        <div class="contact-ambient"></div>
+        <div class="contact-content reveal">
+            <div class="section-eyebrow" style="justify-content: center;">
+                <span style="width: 20px; height: 1px; background: var(--spot); display: block;"></span>
+                LET'S TALK
+            </div>
+            <h2>Ready to <i>accelerate</i> your growth?</h2>
+            <p class="contact-description">Book a free 30-minute growth mapping call. No obligation. No sales pitch. Just strategic thinking about how automation can transform your business.</p>
+            <a href="https://calendly.com/kosta-searchlightautomations/30min" class="contact-cta" target="_blank">
+                Schedule Your Call
+                <span class="btn-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- ════════════════ FOOTER ════════════════ -->
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2026 Searchlight Automations. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ════════════════ SCRIPTS ════════════════ -->
+    <script>
+        // ═══════════════════════════════════════
+        // HERO VIDEO — loop first 5 seconds
+        // ═══════════════════════════════════════
+        const heroVideo = document.getElementById('heroVideo');
+        heroVideo.addEventListener('timeupdate', () => {
+            if (heroVideo.currentTime >= 5) {
+                heroVideo.currentTime = 0;
+                heroVideo.play();
+            }
+        });
+
+        // ═══════════════════════════════════════
+        // HEADER SCROLL
+        // ═══════════════════════════════════════
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
+
+        // ═══════════════════════════════════════
+        // HERO STAGGERED ENTRANCE
+        // ═══════════════════════════════════════
+        const heroEls = document.querySelectorAll('[data-hero-reveal]');
+        heroEls.forEach((el, i) => {
+            el.style.transition = `opacity 0.9s ${0.2 + i * 0.18}s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s ${0.2 + i * 0.18}s cubic-bezier(0.16, 1, 0.3, 1), filter 0.9s ${0.2 + i * 0.18}s cubic-bezier(0.16, 1, 0.3, 1)`;
+            requestAnimationFrame(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+                el.style.filter = 'blur(0)';
+            });
+        });
+
+        // ═══════════════════════════════════════
+        // SCROLL REVEAL (IntersectionObserver)
+        // ═══════════════════════════════════════
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -60px 0px'
+        });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // ═══════════════════════════════════════
+        // SMOOTH ANCHOR LINKS
+        // ═══════════════════════════════════════
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ═══════════════════════════════════════
+        // EXPLODING VIEW — pre-cached canvas frames + RAF scroll
+        // ═══════════════════════════════════════
+        const explodingScroll = document.getElementById('explodingScroll');
+        const explodingVideo = document.getElementById('explodingVideo');
+        const explodingCanvas = document.getElementById('explodingCanvas');
+        const explodingCtx = explodingCanvas.getContext('2d');
+        const explodingCards = document.querySelectorAll('.exploding-card');
+        const explodingDots = document.querySelectorAll('.exploding-dot');
+
+        explodingVideo.pause();
+
+        const FRAME_COUNT = 120;
+        const frames = [];
+        let framesReady = false;
+        let extractionStarted = false;
+        let lastCardIndex = -1;
+        let lastFrameDrawn = -1;
+
+        // Extract frames via sequential seeking
+        const startExtraction = () => {
+            if (extractionStarted) return;
+            extractionStarted = true;
+            const video = explodingVideo;
+            video.pause();
+
+            const duration = video.duration;
+            const interval = duration / FRAME_COUNT;
+
+            const maxW = 960;
+            const scale = Math.min(1, maxW / video.videoWidth);
+            const w = Math.round(video.videoWidth * scale);
+            const h = Math.round(video.videoHeight * scale);
+
+            explodingCanvas.width = w;
+            explodingCanvas.height = h;
+
+            let idx = 0;
+
+            const onSeeked = () => {
+                const frame = document.createElement('canvas');
+                frame.width = w;
+                frame.height = h;
+                frame.getContext('2d').drawImage(video, 0, 0, w, h);
+                frames[idx] = frame;
+
+                if (idx === 0) {
+                    explodingCtx.drawImage(frame, 0, 0);
+                }
+
+                idx++;
+                if (idx >= FRAME_COUNT) {
+                    video.removeEventListener('seeked', onSeeked);
+                    video.style.display = 'none';
+                    framesReady = true;
+                    updateExplodingView();
+                    return;
+                }
+
+                video.currentTime = idx * interval;
+            };
+
+            video.addEventListener('seeked', onSeeked);
+            video.currentTime = 0;
+        };
+
+        explodingVideo.addEventListener('loadeddata', () => {
+            startExtraction();
+        }, { once: true });
+
+        if (explodingVideo.readyState >= 2) {
+            startExtraction();
+        }
+
+        // RAF-throttled scroll handler
+        const updateExplodingView = () => {
+            const rect = explodingScroll.getBoundingClientRect();
+            const scrollHeight = explodingScroll.offsetHeight - window.innerHeight;
+            const progress = Math.max(0, Math.min(1, -rect.top / scrollHeight));
+
+            if (frames.length > 0) {
+                const targetIdx = Math.min(
+                    Math.floor(progress * FRAME_COUNT),
+                    frames.length - 1
+                );
+                const drawIdx = Math.max(0, Math.min(targetIdx, frames.length - 1));
+
+                if (drawIdx !== lastFrameDrawn && frames[drawIdx]) {
+                    explodingCtx.drawImage(frames[drawIdx], 0, 0);
+                    lastFrameDrawn = drawIdx;
+                }
+            }
+
+            let activeCard = -1;
+            if (progress >= 0.05 && progress < 0.30) activeCard = 0;
+            else if (progress >= 0.35 && progress < 0.60) activeCard = 1;
+            else if (progress >= 0.65 && progress < 0.90) activeCard = 2;
+
+            if (activeCard !== lastCardIndex) {
+                explodingCards.forEach((card, i) => {
+                    card.classList.toggle('active', i === activeCard);
+                });
+                explodingDots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeCard);
+                });
+                lastCardIndex = activeCard;
+            }
+        };
+
+        // Continuous RAF loop for instant scroll response
+        const tick = () => {
+            updateExplodingView();
+            requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+    </script>
+</body>
+</html>

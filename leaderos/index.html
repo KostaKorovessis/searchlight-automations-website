@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leader OS — Stop being the bottleneck</title>
+<meta name="description" content="Stop being the bottleneck. Leader OS installs the AI system that runs your week: inbox triaged, meetings prepped, drafts in your voice, and the hours proven on one page.">
+<meta property="og:title" content="Leader OS — Stop being the bottleneck">
+<meta property="og:description" content="The AI system that runs your week, installed for you. First win in your first sitting, hours counted on your own board.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='1' y='1' width='22' height='22' rx='6' fill='%234E9367'/%3E%3Cpath d='M7 12.4 L10.6 16 L17 8.6' fill='none' stroke='%23EFE9D9' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  /* ============================================================
+     LEADER OS — the selling page on the NB-11 Brand Cut chassis
+     Round 3 (Kosta 7/23): streak removed · offer moved up after
+     authority · boxes dissolved into editorial type + hairline
+     bands · verbs full-bleed · closing banner with community
+     button + centered socials · CTA = "Discover if you're a fit"
+     ============================================================ */
+  :root{
+    --n0:#0A0F0C; --n1:#0F1712; --n2:#141F18; --n3:#1B2820;
+    --line:#26312A; --cream:#EFE9D9; --dim:#B9B4A4; --moss:#78816F;
+    --green:#4E9367; --deep:#2E5C41;
+    --disp:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+    --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+    --expo:cubic-bezier(0.16,1,0.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--n0); color:var(--cream);
+    font-family:var(--disp); overflow-x:clip;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--deep); color:var(--cream)}
+  html{cursor:crosshair}
+  a,button{cursor:pointer}
+  .hero canvas{cursor:crosshair}
+
+  .mk{font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--moss); text-transform:uppercase}
+  .mk b{color:var(--green); font-weight:400}
+  .rule{display:flex; align-items:center; gap:14px; margin-bottom:34px}
+  .rule::after{content:""; flex:1; height:1px; background:var(--line)}
+
+  /* ---------- hero (NB-02) ---------- */
+  .hero{position:relative; height:100vh; height:100svh; min-height:520px; background:var(--n0); overflow:hidden; touch-action:pan-y}
+  .hero canvas{position:absolute; inset:0; width:100%; height:100%; display:block}
+  .frame{position:absolute; inset:12px; border:1px solid var(--line); pointer-events:none; opacity:.75}
+  .frame i{position:absolute; font:12px/1 var(--mono); font-style:normal; color:var(--moss)}
+  .frame i:nth-child(1){top:-6px; left:-4px}
+  .frame i:nth-child(2){top:-6px; right:-4px}
+  .frame i:nth-child(3){bottom:-6px; left:-4px}
+  .frame i:nth-child(4){bottom:-6px; right:-4px}
+  .hud-top{position:absolute; top:28px; left:32px; right:32px; display:flex; justify-content:space-between; align-items:flex-start; pointer-events:none}
+  .hud{display:flex; flex-direction:column; gap:6px}
+  .hud .l1{color:var(--moss)}
+  .hud .l2{color:var(--dim)}
+  .wordmark{display:flex; align-items:center; gap:9px; pointer-events:none}
+  .wordmark svg{display:block}
+  .wordmark span{font:600 12px/1 var(--disp); letter-spacing:.34em; color:var(--cream); padding-left:.1em}
+  .hud-bottom{position:absolute; left:32px; right:32px; bottom:26px; display:flex; justify-content:space-between; align-items:flex-end; gap:16px; pointer-events:none}
+  .phrase-block{display:flex; flex-direction:column; gap:10px}
+  .prog{width:148px; height:1px; background:var(--line); overflow:hidden}
+  .prog i{display:block; height:100%; background:var(--green); transform:scaleX(0); transform-origin:left}
+  .phrase-label{font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--dim)}
+  .phrase-label em{font-style:normal; color:var(--green)}
+  .adv{align-self:flex-start; margin-top:2px; cursor:pointer; pointer-events:auto; background:none; border:1px solid var(--line); color:var(--moss); font:10px var(--mono); letter-spacing:.16em; padding:7px 12px 6px; transition:color .2s, border-color .2s}
+  .adv:hover{color:var(--cream); border-color:var(--moss)}
+  .hero-right{display:flex; flex-direction:column; align-items:flex-end; gap:18px}
+  .scroll-cue{display:flex; flex-direction:column; align-items:center; gap:8px}
+  .scroll-cue .tick{width:1px; height:34px; background:var(--moss); transform-origin:top; animation:tick 2.2s cubic-bezier(.6,0,.3,1) infinite}
+  @keyframes tick{0%{transform:scaleY(0)} 45%{transform:scaleY(1)} 100%{transform:scaleY(0); transform-origin:bottom}}
+
+  /* ---------- CTAs ---------- */
+  .cta{display:inline-block; background:var(--green); color:var(--n0); font-family:var(--disp); font-weight:800; font-size:17px; letter-spacing:-.01em; padding:14px 26px; border-radius:8px; text-decoration:none; pointer-events:auto; transition:all .4s var(--expo)}
+  .cta:hover{background:#5CA878; transform:translateY(-2px); box-shadow:0 8px 30px rgba(78,147,103,.28)}
+  .cta-note{display:block; margin-top:10px; font-size:13px; color:var(--moss)}
+  .cta2{display:inline-block; background:none; border:1px solid var(--green); color:var(--green); font-family:var(--disp); font-weight:700; font-size:16px; letter-spacing:-.01em; padding:13px 26px; border-radius:8px; text-decoration:none; transition:all .4s var(--expo)}
+  .cta2:hover{background:var(--deep); color:var(--cream); transform:translateY(-2px)}
+
+  /* ---------- section chrome ---------- */
+  main{display:block}
+  .sec{max-width:1180px; margin:0 auto; padding:clamp(64px,10vw,132px) clamp(20px,5vw,56px)}
+  .sec--tight{padding-bottom:clamp(28px,4vw,48px)}
+  h2{font-family:var(--disp); font-weight:600; font-size:clamp(34px,5.4vw,66px); line-height:1.02; letter-spacing:-0.022em; color:var(--cream); max-width:17ch; text-wrap:balance}
+  .lead{margin-top:22px; max-width:60ch; color:var(--dim); font-size:clamp(15px,1.4vw,17px); line-height:1.65}
+  .lead b{color:var(--cream); font-weight:600}
+
+  /* ---------- editorial passage (the story — no box) ---------- */
+  .passage{margin-top:clamp(36px,5vw,64px); max-width:66ch}
+  .passage p{color:var(--dim); font-size:clamp(16px,1.7vw,19px); line-height:1.7; margin-bottom:18px}
+  .passage p.punch{color:var(--cream); font-weight:600}
+  .passage p.punch em{font-style:normal; color:var(--green)}
+
+  /* ---------- hairline band (the gift · who-not-for) ---------- */
+  .band{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:clamp(30px,4.4vw,52px) 0; margin-top:clamp(40px,6vw,72px)}
+  .band .bmk{margin-bottom:26px}
+  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:clamp(20px,3.5vw,44px)}
+  .step .no{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--green); display:block; margin-bottom:10px}
+  .step p{color:var(--dim); font-size:15.5px; line-height:1.6}
+  .bigline{margin-top:clamp(28px,4vw,44px); text-align:center; font-family:var(--disp); font-style:italic; font-size:clamp(17px,2.4vw,24px); color:var(--dim)}
+  .bigline em{font-style:italic; color:var(--green)}
+  .notfor .statement{font-family:var(--disp); font-style:italic; font-size:clamp(18px,2.6vw,27px); line-height:1.35; color:var(--cream); max-width:30ch; text-wrap:balance}
+  .notfor .follow{margin-top:16px; color:var(--dim); font-size:15.5px; line-height:1.6; max-width:62ch}
+
+  /* ---------- Monday: stat-style rows (no boxes) ---------- */
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:clamp(20px,3.5vw,44px); margin-top:clamp(34px,5vw,56px)}
+  .tile{border-top:1px solid var(--line); padding-top:18px; transition:border-color .5s var(--expo)}
+  .tile:hover{border-top-color:var(--green)}
+  .tile .k{font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--moss); text-transform:uppercase}
+  .tile .v{font-size:clamp(20px,2.2vw,26px); font-weight:700; letter-spacing:-.015em; margin-top:10px; color:var(--cream); line-height:1.25}
+  .tile .v em{font-style:normal; color:var(--green)}
+  .tile .s{font-size:14px; color:var(--dim); margin-top:8px; line-height:1.55}
+
+  /* ---------- the offer ---------- */
+  .offer{background:var(--n1); border:1px solid var(--deep); border-radius:10px; padding:clamp(24px,3.5vw,34px); margin-top:34px; max-width:78ch}
+  .offer .omk{display:block; margin-bottom:18px}
+  .offer ul{margin:0 0 22px; padding:0; list-style:none}
+  .offer li{padding:11px 0 11px 28px; position:relative; color:var(--cream); font-size:16px; line-height:1.55; border-bottom:1px solid var(--line)}
+  .offer li:last-child{border-bottom:0}
+  .offer li::before{content:"✓"; position:absolute; left:2px; color:var(--green); font-weight:700}
+  .offer .gline{color:var(--cream); font-size:16.5px; line-height:1.6; margin:0 0 22px; border-left:2px solid var(--green); padding-left:14px}
+  .after-offer{margin-top:16px; font-size:14px; color:var(--moss); max-width:72ch; line-height:1.65}
+  .after-offer .u{color:var(--dim)}
+
+  /* ---------- verbs: full-bleed band ---------- */
+  .verbs-bleed{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--n1); padding:26px clamp(20px,5vw,56px); display:flex; flex-wrap:wrap; gap:10px 0; justify-content:space-between; align-items:center; font-family:var(--mono); font-size:clamp(11px,1.7vw,15px); letter-spacing:.3em; color:var(--dim); text-transform:uppercase}
+  .verbs-bleed span:first-child{color:var(--green)}
+  .verbs-bleed i{font-style:normal; color:var(--moss)}
+
+  /* ---------- closing banner: community + socials ---------- */
+  .closer{background:var(--n1); border-top:1px solid var(--line); padding:clamp(48px,7vw,84px) clamp(20px,5vw,56px) clamp(36px,5vw,56px); text-align:center}
+  .closer .inner{max-width:640px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:18px}
+  .closer h3{font-family:var(--disp); font-weight:600; font-size:clamp(21px,2.8vw,30px); letter-spacing:-.015em; color:var(--cream); text-wrap:balance}
+  .closer .sub{color:var(--dim); font-size:15px; line-height:1.6; max-width:46ch}
+  .closer .divider{width:64px; height:1px; background:var(--line); margin:22px 0 6px}
+  .socials{display:flex; gap:26px; align-items:center; justify-content:center}
+  .socials a{display:inline-flex; color:var(--moss); transition:all .4s var(--expo)}
+  .socials a:hover{color:var(--green); transform:translateY(-3px)}
+  .socials svg{width:34px; height:34px; fill:currentColor}
+  .closer .name{margin-top:8px}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:760px){
+    .hud-top{top:22px; left:24px; right:24px}
+    .hud-bottom{left:24px; right:24px; bottom:22px}
+    .scroll-cue{display:none}
+  }
+  @media (max-width:600px){
+    .hud .opt{display:none}
+    .wordmark span{display:none}
+  }
+  @media (max-width:430px){
+    .verbs-bleed{letter-spacing:.16em; justify-content:center; gap:10px 14px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .scroll-cue .tick{animation:none; transform:scaleY(1)}
+    .prog{visibility:hidden}
+    .hero canvas{cursor:default}
+    .tile,.cta,.cta2,.socials a{transition:none}
+  }
+
+  </style>
+</head>
+<body>
+
+<!-- ================= HERO — the particle field ================= -->
+<div class="hero" id="hero">
+  <canvas id="field" aria-label="A field of particles forming the phrases: stop being the bottleneck, get your time back, learn what to automate, and the Leader OS mark"></canvas>
+  <div class="frame" aria-hidden="true"><i>+</i><i>+</i><i>+</i><i>+</i></div>
+  <header class="hud-top">
+    <div class="hud mk" aria-live="off">
+      <span class="l1">LEADER OS · <span class="opt">NIGHT BOARD · </span>BY KOSTA KOROVESSIS</span>
+      <span class="l2"><span id="seq">SEQ 01/04</span> · <span id="pts">&mdash; PTS</span></span>
+    </div>
+    <div class="wordmark" aria-label="Leader OS">
+      <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+        <rect x="1" y="1" width="22" height="22" rx="6" fill="#4E9367"/>
+        <path d="M7 12.4 L10.6 16 L17 8.6" fill="none" stroke="#EFE9D9" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span>LEADER OS</span>
+    </div>
+  </header>
+  <div class="hud-bottom">
+    <div class="phrase-block">
+      <div class="prog" aria-hidden="true"><i id="progBar"></i></div>
+      <div class="phrase-label"><em id="phraseNo">01</em> — <span id="phraseName">THE BOTTLENECK</span> · KEPT: <em id="keptName">BOTTLENECK</em></div>
+      <button class="adv" id="advance" type="button">ADVANCE &#9656;</button>
+    </div>
+    <div class="hero-right">
+      <a class="cta" href="https://calendly.com/kosta-searchlightautomations/30min">Discover if you're a fit</a>
+      <div class="scroll-cue" aria-hidden="true">
+        <span class="mk">SCROLL</span>
+        <span class="tick"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+  <!-- ================= SC.01 · THE QUESTION ================= -->
+  <section class="sec">
+    <div class="rule"><span class="mk">SC.01 · <b>THE QUESTION</b></span></div>
+    <h2>Are you still the one everything waits on?</h2>
+    <p class="lead">Every decision, every draft, every fire routes through you. That's not a you problem. <b>That's a missing system, and I install it.</b></p>
+    <p style="margin-top:26px">
+      <a class="cta" href="https://calendly.com/kosta-searchlightautomations/30min">Discover if you're a fit</a>
+      <span class="cta-note">A short call. If it's not a fit, I'll tell you that too.</span>
+    </p>
+  </section>
+
+  <!-- ================= SC.02 · THE "OKAY" EMAILS + AUTHORITY ================= -->
+  <section class="sec sec--tight">
+    <div class="rule"><span class="mk">SC.02 · <b>THE "OKAY" EMAILS</b></span></div>
+    <h2>You've tried AI. It writes "okay" emails that sound like nobody.</h2>
+    <p class="lead">Chat answers questions. It doesn't run anything. Out of the box, AI knows nothing about your business, and every new chat starts from zero. <b>A stranger's first day, every single day.</b></p>
+    <div class="passage">
+      <p>I spent 25 years in brick-and-mortar operations, with over a decade of leading teams of up to 50. I still lost a year trying to fix AI's answers with sharper prompts and new tools. None of it held, because even my best prompt was talking to a stranger.</p>
+      <p class="punch">What fixed it was building one place that holds my business: what I sell, who my customers are, how I decide, what good looks like. The AI never got smarter. <em>It finally knew my business.</em> I run my own businesses on this exact system today.</p>
+    </div>
+  </section>
+
+  <!-- ================= SC.03 · MONDAY (moved up, per your reorder) ================= -->
+  <section class="sec sec--tight">
+    <div class="rule"><span class="mk">SC.03 · <b>MONDAY, WITH THE SYSTEM IN</b></span></div>
+    <h2>What Monday looks like with the system in.</h2>
+    <div class="tiles">
+      <div class="tile"><div class="k">Before you sit down</div><div class="v">Inbox already <em>triaged</em></div><div class="s">What needs you, what your team can take, what to drop.</div></div>
+      <div class="tile"><div class="k">Before every meeting</div><div class="v">The prep is <em>waiting</em></div><div class="s">And the follow-ups draft themselves after.</div></div>
+      <div class="tile"><div class="k">Under your name</div><div class="v">Drafts in <em>your voice</em></div><div class="s">Not a robot with good manners. You, on paper.</div></div>
+      <div class="tile"><div class="k">On one page</div><div class="v">The hours, <em>proven</em></div><div class="s">Your own numbers, counted from day one.</div></div>
+    </div>
+    <p class="lead" style="margin-top:34px">Nothing sends, posts, or changes anything without your say-so. <b>It drafts; you decide.</b> That rule never comes off.</p>
+    <div class="band notfor">
+      <span class="mk bmk" style="display:block">WHO THIS IS NOT FOR</span>
+      <p class="statement">If you want someone to automate a broken process and walk away, I'm not your guy.</p>
+      <p class="follow">A routine built on a mess just runs the mess faster. This works for leaders who'll sit with me, decide what good looks like, and keep the final say on everything that leaves their desk.</p>
+    </div>
+  </section>
+
+  <!-- ================= SC.04 · THE FOUNDING BUILDS ================= -->
+  <section class="sec">
+    <div class="rule"><span class="mk">SC.04 · <b>THE FOUNDING BUILDS</b></span></div>
+    <h2>I'm looking for three strong candidates to build this system for.</h2>
+    <p class="lead">Leaders who want the whole thing running for them, without adding hours to learn it. <b>I build it with you, on your machine, in about three weeks:</b></p>
+    <div class="offer">
+      <span class="mk omk">THE BUILD · WHAT YOU GET</span>
+      <ul>
+        <li>Your world, your numbers, and your voice, learned in sittings. You talk; it writes. You never fill in a form.</li>
+        <li>Ten routines built on your real work: the inbox, the meetings, the updates, the reports that eat your week.</li>
+        <li>Your tools connected: email, calendar, notes. It reads your real work, not pasted snippets.</li>
+        <li>Two pieces that run without you: your morning sort, and your meeting pipeline.</li>
+        <li>Your hours on one page, on your phone, counted from day one.</li>
+        <li>Ninety days of tuning after handoff, and a direct line to me the whole way.</li>
+      </ul>
+      <p class="gline">If your own numbers don't show 10+ hours a week coming back within thirty days of handoff, I keep building free until they do.</p>
+      <a class="cta" href="https://calendly.com/kosta-searchlightautomations/30min">Discover if you're a fit</a>
+      <span class="cta-note">Tell me where your week stands. If it's a good fit, I'll walk you through exactly what you'd get.</span>
+    </div>
+    <p class="after-offer">Three spots. I build these personally, one at a time.
+<br>
+    <span class="u">And the three founding builds shape what every build after them gets. You're not buying a package off a shelf; you're one of the three people it gets built around.</span></p>
+  </section>
+
+</main>
+
+<!-- ================= the verbs, full-bleed ================= -->
+<div class="verbs-bleed" aria-label="The five verdicts">
+  <span>KEEP</span><i>·</i><span>FIX</span><i>·</i><span>AUTOMATE</span><i>·</i><span>DELEGATE</span><i>·</i><span>RETIRE</span>
+</div>
+
+<!-- ================= closing banner: community + socials ================= -->
+<div class="closer">
+  <div class="inner">
+    <span class="mk">PREFER TO BUILD IT YOURSELF?</span>
+    <h3>The same system, taught by doing.</h3>
+    <p class="sub">The Leader OS community: build your own workspace one win at a time, with the founder in the room daily. $47/mo soon.</p>
+    <a class="cta2" href="https://www.skool.com/ai-leader-os-2965/about">Visit the Leader OS community &rarr;</a>
+    <span class="divider" aria-hidden="true"></span>
+    <span class="socials">
+      <a href="https://www.youtube.com/@Kosta-7Korovessis" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
+      <a href="https://www.linkedin.com/in/konstadinos-korovessis-2327983a3/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5z"/></svg></a>
+    </span>
+    <span class="mk name">LEADER OS · KOSTA KOROVESSIS</span>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   MODULE 1 — nb11Hero: the particle field (NB-02, verbatim
+   minus the craft-figure SVGs and stat counters, which moved
+   to nb11Page). One rAF; pauses off-screen + on document.hidden.
+   ============================================================ */
+(() => {
+  "use strict";
+  const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const COARSE = matchMedia("(pointer: coarse)").matches;
+
+  const hero = document.getElementById("hero");
+  const cv = document.getElementById("field");
+  const ctx = cv.getContext("2d", { alpha: false });
+  const seqEl = document.getElementById("seq");
+  const ptsEl = document.getElementById("pts");
+  const noEl = document.getElementById("phraseNo");
+  const nameEl = document.getElementById("phraseName");
+  const keptEl = document.getElementById("keptName");
+  const progEl = document.getElementById("progBar");
+
+  const BG = "#0A0F0C", CREAM = "#EFE9D9", GREEN = "#4E9367";
+  const DUR = 4600, SWEEP = 0.5;
+
+  const PHRASES = [
+    { name: "THE BOTTLENECK",     kept: "BOTTLENECK", words: [["STOP",0],["BEING",0],["THE",0],["BOTTLENECK.",1]] },
+    { name: "THE HOURS",          kept: "BACK",    words: [["GET",0],["YOUR",0],["TIME",0],["BACK.",1]] },
+    { name: "THE DECIDING",       kept: "AUTOMATE", words: [["LEARN",0],["WHAT",0],["TO",0],["AUTOMATE.",1]] },
+    { name: "LEADER OS",          kept: "THE CHECK", glyph: true }
+  ];
+
+  let W = 0, H = 0, DPR = 1, N = 0, M = 0;
+  let px, py, vx, vy, kk, perm;
+  let T = [];
+  let cur = 0, prev = 0, morphAt = 0, last = 0, raf = 0;
+  let running = false, heroVis = true, pausedAt = 0;
+  let ptrX = -9e3, ptrY = -9e3, ptrDown = false;
+
+  const off = document.createElement("canvas");
+  const octx = off.getContext("2d", { willReadFrequently: true });
+
+  /* ---------- phrase rasterisation ---------- */
+  function fontStr(s) {
+    return '700 ' + s + 'px "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif';
+  }
+  function spaceW(size) {
+    const w = octx.measureText(" ").width;
+    return w > 0 ? w : size * 0.28;
+  }
+  function lineW(words, size) {
+    octx.font = fontStr(size);
+    let w = 0;
+    for (let i = 0; i < words.length; i++) {
+      w += octx.measureText(words[i][0]).width;
+      if (i < words.length - 1) w += spaceW(size);
+    }
+    return w;
+  }
+  function splitLines(words) {
+    let best = null;
+    for (let i = 1; i < words.length; i++) {
+      const a = words.slice(0, i), b = words.slice(i);
+      const d = Math.abs(lineW(a, 100) - lineW(b, 100));
+      if (!best || d < best.d) best = { d, lines: [a, b] };
+    }
+    return best.lines;
+  }
+  function drawWords(words) {
+    octx.clearRect(0, 0, W, H);
+    const maxW = W * 0.88;
+    let size = Math.min(maxW * 100 / Math.max(1, lineW(words, 100)), H * 0.36);
+    let lines = [words];
+    if (size < 70 && words.length > 1) {
+      lines = splitLines(words);
+      const longest = Math.max(lineW(lines[0], 100), lineW(lines[1], 100));
+      size = Math.min(maxW * 100 / longest, H * 0.26);
+    }
+    size = Math.max(20, size);
+    const lh = size * 1.08;
+    const top = H * 0.5 - lh * lines.length / 2;
+    octx.font = fontStr(size);
+    const sp = spaceW(size);
+    for (let li = 0; li < lines.length; li++) {
+      const line = lines[li];
+      const full = line.map(w => w[0]).join(" ");
+      const m0 = octx.measureText(full);
+      const asc = m0.actualBoundingBoxAscent != null ? m0.actualBoundingBoxAscent : size * 0.72;
+      const desc = m0.actualBoundingBoxDescent != null ? m0.actualBoundingBoxDescent : size * 0.05;
+      let x = (W - lineW(line, size)) / 2;
+      const y = top + lh * (li + 0.5) + (asc - desc) / 2;
+      for (const [word, k] of line) {
+        octx.fillStyle = k ? "#00ff00" : "#ff0000";
+        octx.fillText(word, x, y);
+        x += octx.measureText(word).width + sp;
+      }
+    }
+  }
+  function rrPath(c, x, y, w, h, r) {
+    c.beginPath();
+    c.moveTo(x + r, y);
+    c.arcTo(x + w, y, x + w, y + h, r);
+    c.arcTo(x + w, y + h, x, y + h, r);
+    c.arcTo(x, y + h, x, y, r);
+    c.arcTo(x, y, x + w, y, r);
+    c.closePath();
+  }
+  function drawGlyph() {
+    octx.clearRect(0, 0, W, H);
+    const S = Math.min(W, H) * 0.36, cx = W / 2, cy = H * 0.5 - S * 0.16;
+    rrPath(octx, cx - S / 2, cy - S / 2, S, S, S * 0.23);
+    octx.fillStyle = "#00ff00";
+    octx.fill();
+    octx.strokeStyle = "#ff0000";
+    octx.lineWidth = S * 0.13;
+    octx.lineCap = "round";
+    octx.lineJoin = "round";
+    octx.beginPath();
+    octx.moveTo(cx - S * 0.23, cy + S * 0.02);
+    octx.lineTo(cx - S * 0.05, cy + S * 0.20);
+    octx.lineTo(cx + S * 0.26, cy - S * 0.17);
+    octx.stroke();
+    const ts = Math.round(S * 0.185), t = "LEADER OS", ls = ts * 0.20;
+    octx.font = fontStr(ts);
+    let tw = 0;
+    for (const ch of t) tw += octx.measureText(ch).width + ls;
+    tw -= ls;
+    let x = cx - tw / 2;
+    const y = cy + S / 2 + S * 0.34;
+    octx.fillStyle = "#ff0000";
+    for (const ch of t) { octx.fillText(ch, x, y); x += octx.measureText(ch).width + ls; }
+  }
+  function samplePhrase(p, idx) {
+    if (p.glyph) drawGlyph(); else drawWords(p.words);
+    const collect = step => {
+      const img = octx.getImageData(0, 0, W, H).data;
+      const xs = [], ys = [], ks = [];
+      for (let y = 0; y < H; y += step)
+        for (let x = 0; x < W; x += step) {
+          const i = (y * W + x) * 4;
+          if (img[i + 3] > 140) { xs.push(x); ys.push(y); ks.push(img[i + 1] > img[i] ? 1 : 0); }
+        }
+      return { xs, ys, ks };
+    };
+    const step0 = W * H > 800000 ? 2 : 1;
+    let c = collect(step0);
+    if (step0 > 1 && c.xs.length < N * 0.5) c = collect(1);
+    const n = c.xs.length;
+    if (!n) return null;
+    const tx = new Float32Array(N), ty = new Float32Array(N);
+    const tk = new Uint8Array(N), td = new Float32Array(N);
+    let minX = 1e9, maxX = -1e9;
+    for (let i = 0; i < n; i++) {
+      if (c.xs[i] < minX) minX = c.xs[i];
+      if (c.xs[i] > maxX) maxX = c.xs[i];
+    }
+    const span = Math.max(1, maxX - minX);
+    const rev = (idx || 0) % 2 === 1; // alternate sweep direction per phrase
+    for (let i = 0; i < N; i++) {
+      const j = Math.floor(perm[i] / N * n);
+      tx[i] = c.xs[j] + (Math.random() - 0.5) * 1.6;
+      ty[i] = c.ys[j] + (Math.random() - 0.5) * 1.6;
+      tk[i] = c.ks[j];
+      const u = (c.xs[j] - minX) / span;
+      td[i] = (rev ? 1 - u : u) * SWEEP + Math.random() * 0.16;
+    }
+    return { x: tx, y: ty, k: tk, d: td };
+  }
+
+  /* ---------- layout / allocation ---------- */
+  function layout() {
+    W = hero.clientWidth; H = hero.clientHeight;
+    DPR = Math.min(devicePixelRatio || 1, COARSE ? 1.5 : 2);
+    cv.width = Math.round(W * DPR);
+    cv.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    off.width = W; off.height = H;
+    const area = W * H;
+    const target = COARSE
+      ? Math.min(16000, Math.max(9000, Math.round(area / 34)))
+      : Math.min(34000, Math.max(14000, Math.round(area / 26)));
+    if (target !== N) {
+      N = target;
+      px = new Float32Array(N); py = new Float32Array(N);
+      vx = new Float32Array(N); vy = new Float32Array(N);
+      kk = new Float32Array(N);
+      perm = new Uint32Array(N);
+      for (let i = 0; i < N; i++) perm[i] = i;
+      for (let i = N - 1; i > 0; i--) {
+        const j = (Math.random() * (i + 1)) | 0;
+        const t = perm[i]; perm[i] = perm[j]; perm[j] = t;
+      }
+      for (let i = 0; i < N; i++) {
+        kk[i] = 0.05 + Math.random() * 0.06;
+        // spawn along the frame edges so the first gather sweeps inward
+        const e = Math.random() * 4 | 0, u = Math.random();
+        if (e === 0)      { px[i] = u * W; py[i] = -6 - Math.random() * 40; }
+        else if (e === 1) { px[i] = u * W; py[i] = H + 6 + Math.random() * 40; }
+        else if (e === 2) { px[i] = -6 - Math.random() * 40; py[i] = u * H; }
+        else              { px[i] = W + 6 + Math.random() * 40; py[i] = u * H; }
+      }
+    }
+    M = N;
+    T = PHRASES.map(samplePhrase);
+    ptsEl.textContent = M.toLocaleString("en-US") + " PTS" + (RM ? " · STATIC" : "");
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, W, H);
+  }
+
+  /* ---------- phrase control ---------- */
+  function setLabels(p) {
+    seqEl.textContent = "SEQ 0" + (p + 1) + "/0" + PHRASES.length;
+    noEl.textContent = "0" + (p + 1);
+    nameEl.textContent = PHRASES[p].name;
+    keptEl.textContent = PHRASES[p].kept;
+  }
+  function setPhrase(p, burst) {
+    prev = cur; cur = p;
+    morphAt = performance.now();
+    setLabels(p);
+    if (burst) {
+      const cx = W / 2, cy = H / 2;
+      for (let i = 0; i < N; i++) {
+        const dx = px[i] - cx, dy = py[i] - cy;
+        const dd = Math.sqrt(dx * dx + dy * dy) + 0.001;
+        const m = 2.5 + Math.random() * 5.5;
+        vx[i] += dx / dd * m + (Math.random() - 0.5) * 3.5;
+        vy[i] += dy / dd * m + (Math.random() - 0.5) * 3.5;
+      }
+    }
+  }
+
+  /* ---------- main loop (adaptive governor preserved) ---------- */
+  let ema = 16.7, lastShed = 0;
+  function govern(dms, now) {
+    if (dms <= 0 || dms > 150) return; // ignore resume spikes
+    ema += (dms - ema) * 0.06;
+    if (ema > 24 && M > N * 0.35 && now - lastShed > 1200) {
+      M = Math.max(Math.floor(N * 0.35), Math.floor(M * 0.82));
+      lastShed = now; ema = 16.7;
+      ptsEl.textContent = M.toLocaleString("en-US") + " PTS";
+    } else if (ema < 13 && M < N && now - lastShed > 3000) {
+      M = Math.min(N, Math.floor(M * 1.08) + 64);
+      lastShed = now;
+      ptsEl.textContent = M.toLocaleString("en-US") + " PTS";
+    }
+  }
+  function frame(now) {
+    raf = requestAnimationFrame(frame);
+    const dms = now - last;
+    let dt = dms / 16.6667;
+    last = now;
+    govern(dms, now);
+    if (dt > 3) dt = 3; else if (dt < 0.2) dt = 0.2;
+
+    if (now - morphAt > DUR) setPhrase((cur + 1) % PHRASES.length, true);
+    const t = T[cur];
+    if (!t) return;
+    progEl.style.transform = "scaleX(" + Math.min(1, (now - morphAt) / DUR) + ")";
+
+    const el = (now - morphAt) / 1000;
+    const tt = now * 0.001;
+    const dampG = Math.pow(0.88, dt), dampF = Math.pow(0.96, dt);
+    const pr = COARSE ? 110 : 135, pr2 = pr * pr;
+    const pStr = ptrDown ? 3.6 : 1.9;
+    const tx = t.x, ty = t.y, tk = t.k, td = t.d;
+    const pk = T[prev] ? T[prev].k : tk;
+
+    ctx.fillStyle = "rgba(10,15,12,0.32)";
+    ctx.fillRect(0, 0, W, H);
+
+    for (let i = 0; i < M; i++) {
+      let x = px[i], y = py[i];
+      const gathering = el > td[i];
+      const amp = gathering ? (el > td[i] + 1.5 ? 0.05 : 0.02) : 0.55;
+      let ax = (Math.sin(y * 0.011 + tt * 0.9) + Math.sin(y * 0.021 - tt * 0.5)) * amp;
+      let ay = (Math.cos(x * 0.009 - tt * 0.7) + Math.cos(x * 0.019 + tt * 0.6)) * amp;
+      const pdx = x - ptrX, pdy = y - ptrY, pd2 = pdx * pdx + pdy * pdy;
+      if (pd2 < pr2) {
+        const pd = Math.sqrt(pd2) + 0.01, f = 1 - pd / pr;
+        ax += pdx / pd * f * f * pStr;
+        ay += pdy / pd * f * f * pStr;
+      }
+      if (gathering) {
+        ax += (tx[i] - x) * kk[i];
+        ay += (ty[i] - y) * kk[i];
+        vx[i] = (vx[i] + ax * dt) * dampG;
+        vy[i] = (vy[i] + ay * dt) * dampG;
+      } else {
+        vx[i] = (vx[i] + ax * dt) * dampF;
+        vy[i] = (vy[i] + ay * dt) * dampF;
+      }
+      const sp2 = vx[i] * vx[i] + vy[i] * vy[i];
+      if (sp2 > 784) { const f = 28 / Math.sqrt(sp2); vx[i] *= f; vy[i] *= f; }
+      px[i] = x + vx[i] * dt;
+      py[i] = y + vy[i] * dt;
+    }
+
+    const s = W > 1100 ? 1.7 : 1.5;
+    const sg = s + 0.4 + Math.sin(tt * 2.4) * 0.22;
+    ctx.fillStyle = CREAM;
+    for (let i = 0; i < M; i++) {
+      const k = el > td[i] ? tk[i] : pk[i];
+      if (!k) ctx.fillRect(px[i] - s / 2, py[i] - s / 2, s, s);
+    }
+    ctx.fillStyle = GREEN;
+    for (let i = 0; i < M; i++) {
+      const k = el > td[i] ? tk[i] : pk[i];
+      if (k) ctx.fillRect(px[i] - sg / 2, py[i] - sg / 2, sg, sg);
+    }
+  }
+
+  function start() {
+    if (running || RM) return;
+    running = true;
+    if (pausedAt) { morphAt += performance.now() - pausedAt; pausedAt = 0; }
+    last = performance.now();
+    raf = requestAnimationFrame(frame);
+  }
+  function stop() {
+    if (!running) return;
+    running = false;
+    pausedAt = performance.now();
+    cancelAnimationFrame(raf);
+  }
+
+  /* ---------- static (reduced motion) ---------- */
+  function staticRender() {
+    const t = T[cur];
+    if (!t) return;
+    ctx.fillStyle = BG;
+    ctx.fillRect(0, 0, W, H);
+    const s = W > 1100 ? 1.7 : 1.5, sg = s + 0.4;
+    ctx.fillStyle = CREAM;
+    for (let i = 0; i < N; i++) if (!t.k[i]) ctx.fillRect(t.x[i] - s / 2, t.y[i] - s / 2, s, s);
+    ctx.fillStyle = GREEN;
+    for (let i = 0; i < N; i++) if (t.k[i]) ctx.fillRect(t.x[i] - sg / 2, t.y[i] - sg / 2, sg, sg);
+  }
+
+  /* ---------- input ---------- */
+  function toLocal(e) {
+    const r = cv.getBoundingClientRect();
+    ptrX = e.clientX - r.left;
+    ptrY = e.clientY - r.top;
+  }
+  function shock(x0, y0) {
+    const R = 190, R2 = R * R;
+    for (let i = 0; i < M; i++) {
+      const dx = px[i] - x0, dy = py[i] - y0, d2 = dx * dx + dy * dy;
+      if (d2 < R2) {
+        const d = Math.sqrt(d2) + 0.01, f = (1 - d / R) * 9;
+        vx[i] += dx / d * f;
+        vy[i] += dy / d * f;
+      }
+    }
+  }
+  hero.addEventListener("pointermove", toLocal, { passive: true });
+  hero.addEventListener("pointerdown", e => {
+    toLocal(e); ptrDown = true;
+    if (!RM) shock(ptrX, ptrY);
+  }, { passive: true });
+  addEventListener("pointerup", () => { ptrDown = false; }, { passive: true });
+  hero.addEventListener("pointerleave", () => { ptrX = -9e3; ptrY = -9e3; ptrDown = false; });
+
+  document.getElementById("advance").addEventListener("click", () => {
+    if (RM) { cur = (cur + 1) % PHRASES.length; setLabels(cur); staticRender(); }
+    else setPhrase((cur + 1) % PHRASES.length, true);
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stop(); else if (heroVis) start();
+  });
+  new IntersectionObserver(en => {
+    heroVis = en[0].isIntersecting;
+    if (heroVis && !document.hidden) start(); else stop();
+  }, { threshold: 0.02 }).observe(hero);
+
+  let rto = 0;
+  addEventListener("resize", () => {
+    clearTimeout(rto);
+    rto = setTimeout(() => { layout(); if (RM) staticRender(); }, 180);
+  });
+
+  /* ---------- boot ---------- */
+  layout();
+  setLabels(0);
+  if (RM) staticRender();
+  else { setPhrase(0, false); start(); }
+})();
+
+/* ============================================================
+   MODULE 3 — nb11Page: page furniture.
+   · Stat count-ups (NB-02).
+   · THE STREAK trigger (NB-04 scene 5, rebuilt): default CSS is
+     the finished static state; JS arms the transitions only when
+     motion is allowed, then plays them once on scroll into view.
+   No canvas, no persistent rAF.
+   ============================================================ */
+(() => {
+  "use strict";
+  const RM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- stat count-up (NB-02) ---------- */
+  const counters = document.querySelectorAll("[data-count]");
+  function runCounter(elm) {
+    const to = parseFloat(elm.dataset.count);
+    const from = parseFloat(elm.dataset.from || "0");
+    const dec = parseInt(elm.dataset.dec || "0", 10);
+    if (RM) { elm.textContent = to.toFixed(dec); return; }
+    const t0 = performance.now(), dur = 1100;
+    (function tickFn(now) {
+      const u = Math.min(1, (now - t0) / dur);
+      const e = 1 - Math.pow(1 - u, 3);
+      elm.textContent = (from + (to - from) * e).toFixed(dec);
+      if (u < 1) requestAnimationFrame(tickFn);
+    })(t0);
+  }
+  if ("IntersectionObserver" in window) {
+    const cio = new IntersectionObserver(ens => {
+      ens.forEach(en => {
+        if (en.isIntersecting) { runCounter(en.target); cio.unobserve(en.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => cio.observe(c));
+  } else {
+    counters.forEach(c => runCounter(c));
+  }
+
+  /* ---------- the streak ---------- */
+  const stk = document.querySelector(".stk");
+  if (stk && !RM && "IntersectionObserver" in window) {
+    stk.classList.add("armed");
+    const sio = new IntersectionObserver(en => {
+      if (en[0].isIntersecting) {
+        stk.classList.add("play");
+        sio.disconnect();
+      }
+    }, { threshold: 0.3 });
+    sio.observe(stk);
+  }
+})();
+</script>
+</body>
+</html>
