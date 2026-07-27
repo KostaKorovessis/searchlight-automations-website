@@ -122,6 +122,10 @@
   .after-offer{margin-top:16px; font-size:14px; color:var(--moss); max-width:72ch; line-height:1.65}
   .after-offer .u{color:var(--dim)}
 
+  /* ---------- three spots + waitlist callout ---------- */
+  .spots{margin-top:clamp(28px,4vw,44px); font-family:var(--disp); font-style:italic; font-size:clamp(20px,2.8vw,30px); line-height:1.35; color:var(--cream); max-width:34ch; text-wrap:balance}
+  .spots em{font-style:italic; color:var(--green)}
+
   /* ---------- verbs: full-bleed band ---------- */
   .verbs-bleed{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--n1); padding:26px clamp(20px,5vw,56px); display:flex; flex-wrap:wrap; gap:10px 0; justify-content:space-between; align-items:center; font-family:var(--mono); font-size:clamp(11px,1.7vw,15px); letter-spacing:.3em; color:var(--dim); text-transform:uppercase}
   .verbs-bleed span:first-child{color:var(--green)}
@@ -149,8 +153,8 @@
     .hud .opt{display:none}
     .wordmark span{display:none}
   }
-  @media (max-width:430px){
-    .verbs-bleed{letter-spacing:.16em; justify-content:center; gap:10px 14px}
+  @media (max-width:600px){
+    .verbs-bleed{flex-wrap:nowrap; justify-content:center; gap:0 8px; font-size:10px; letter-spacing:.1em; padding-left:12px; padding-right:12px}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
@@ -220,6 +224,13 @@
     </div>
   </section>
 
+  <!-- ================= RESERVED · SOCIAL PROOF (Kosta, 7/26) =================
+       Slot held for social proof about who Kosta is, close to the top.
+       Fills later with real proof from the Leader OS community
+       (member wins, screenshots, the cool stuff). Sits right after the
+       authority story so the story gets backed the moment proof exists.
+       ========================================================================= -->
+
   <!-- ================= SC.03 · MONDAY (moved up, per your reorder) ================= -->
   <section class="sec sec--tight">
     <div class="rule"><span class="mk">SC.03 · <b>MONDAY, WITH THE SYSTEM IN</b></span></div>
@@ -257,9 +268,7 @@
       <a class="cta" href="https://calendly.com/kosta-searchlightautomations/30min">Discover if you're a fit</a>
       <span class="cta-note">Tell me where your week stands. If it's a good fit, I'll walk you through exactly what you'd get.</span>
     </div>
-    <p class="after-offer">Three spots. I build these personally, one at a time.
-<br>
-    <span class="u">And the three founding builds shape what every build after them gets. You're not buying a package off a shelf; you're one of the three people it gets built around.</span></p>
+    <p class="spots">Three spots. I build them personally, one at a time, <em>and the waitlist runs first come, first served.</em></p>
   </section>
 
 </main>
@@ -268,6 +277,14 @@
 <div class="verbs-bleed" aria-label="The five verdicts">
   <span>KEEP</span><i>·</i><span>FIX</span><i>·</i><span>AUTOMATE</span><i>·</i><span>DELEGATE</span><i>·</i><span>RETIRE</span>
 </div>
+
+<!-- ================= RESERVED · THE LEAD MAGNET (Kosta, 7/26) =================
+     Slot held for the free beginner training: embedded YouTube video
+     (non-techie gets into the IDE, Claude Code builds context files)
+     + the starter workspace download link. For people not ready to join.
+     Ships after the video is filmed; sits above the community closer so
+     the free path hands off to the paid one.
+     ============================================================================ -->
 
 <!-- ================= closing banner: community + socials ================= -->
 <div class="closer">
