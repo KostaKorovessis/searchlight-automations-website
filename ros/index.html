@@ -3,193 +3,219 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Routine OS — Stop being the bottleneck</title>
-<meta name="description" content="Stop being the bottleneck. Routine OS installs the AI system that runs your week: inbox triaged, meetings prepped, drafts in your voice, and the hours proven on one page.">
-<meta property="og:title" content="Routine OS — Stop being the bottleneck">
-<meta property="og:description" content="The AI system that runs your week, installed for you. First win in your first sitting, hours counted on your own board.">
+<title>Routine OS — Automate what moves the business</title>
+<meta name="description" content="Routine OS teaches business owners what to automate and how. One hour with Kosta: find the real problem, build one routine, count what it pays.">
+<meta property="og:title" content="Routine OS — Automate what moves the business">
+<meta property="og:description" content="One hour, live, on your business. You leave with a routine running and a plan for the next two.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='1' y='1' width='22' height='22' rx='6' fill='%234E9367'/%3E%3Cpath d='M7 12.4 L10.6 16 L17 8.6' fill='none' stroke='%23EFE9D9' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   /* ============================================================
-     ROUTINE OS — the selling page on the NB-11 Brand Cut chassis
-     Round 3 (Kosta 7/23): streak removed · offer moved up after
-     authority · boxes dissolved into editorial type + hairline
-     bands · verbs full-bleed · closing banner with community
-     button + centered socials · CTA = "Discover if you're a fit"
+     ROUTINE OS — the selling page, revamp 2026-09-06
+     The Column design system (tokens.json / variables.css /
+     DESIGN.md) melded with the NB-11 chassis: the particle hero
+     and the closer stay dark on Column's Deep Surface; the body
+     flips to Column's light canvas with bordered cards, the 1200
+     grid, 72px section gaps, 8px radii, navy primary + outlined
+     secondary buttons, one Signal Orange surface per page (hero).
+     Palette: back to the NB-11 forest/cream/green on his call (9/06 night);
+     buttons = amber #E9B44C so they stand off the green. Fonts: Inter stands in for SuisseIntl, JetBrains Mono for
+     SuisseIntlMono (the substitutes DESIGN.md names).
      ============================================================ */
   :root{
-    --n0:#0A0F0C; --n1:#0F1712; --n2:#141F18; --n3:#1B2820;
-    --line:#26312A; --cream:#EFE9D9; --dim:#B9B4A4; --moss:#78816F;
-    --green:#4E9367; --deep:#2E5C41;
-    --disp:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
-    --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+    /* Column colors */
+    --navy:#EFE9D9; --ink:#0A0F0C; --slate:#B9B4A4; --steel:#78816F; --fog:#B9B4A4; --mist:#4A5348;
+    --hairline:#26312A; --canvas:#0A0F0C; --white:#0F1712; --charcoal:#141F18; --obsidian:#1B2820;
+    --orange:#E9B44C; --peach:#F3C766; --seafoam:#4E9367; --seafoam-700:#5CA878; --seafoam-400:#7FBF97;
+    --deep-sea:#2E5C41; --sky:#2E5C41;
+    /* dark-surface companions (Deep Surface inversion) */
+    --ink-2:#141F18; --line-dark:#26312A; --text-dark:#EFE9D9; --muted-dark:#B9B4A4; --dim-dark:#78816F;
+    /* type */
+    --sans:'Inter',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --text-caption:12px; --text-body:16px; --text-body-lg:18px; --leading-body-lg:1.33;
+    --text-subheading-sm:20px; --text-subheading-lg:28px; --text-heading-sm:40px; --text-heading:48px; --text-heading-lg:52px; --text-display:60px;
+    /* layout + shape */
+    --page-max:1200px; --section-gap:72px; --card-pad:24px; --gap:8px;
+    --radius:8px; --radius-xl:12px; --radius-full:9999px;
+    /* shadows */
+    --shadow-card:0 0 0 1px #26312A, 0 1px 4px rgba(0,0,0,.35);
+    --shadow-btn:0 1px 3px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.22);
+    --shadow-product:0 0 0 1px #26312A, 0 40px 32px rgba(0,0,0,.28), 0 22px 18px rgba(0,0,0,.22), 0 12px 10px rgba(0,0,0,.18), 0 3px 2px rgba(0,0,0,.2);
+    --shadow-md:0 8px 16px rgba(0,0,0,.35), 0 4px 8px rgba(0,0,0,.25);
     --expo:cubic-bezier(0.16,1,0.3,1);
+    /* legacy names the hero HUD still reads */
+    --n0:var(--ink); --line:var(--line-dark); --cream:var(--text-dark); --dim:var(--muted-dark); --moss:var(--dim-dark); --green:var(--seafoam); --disp:var(--sans);
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    background:var(--n0); color:var(--cream);
-    font-family:var(--disp); overflow-x:clip;
-    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-  }
-  ::selection{background:var(--deep); color:var(--cream)}
-  html{cursor:crosshair}
+  body{background:var(--canvas); color:var(--slate); font-family:var(--sans); font-size:var(--text-body); line-height:1.5; overflow-x:clip; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; font-feature-settings:"cv11","salt" 2}
+  ::selection{background:var(--deep-sea); color:var(--text-dark)}
   a,button{cursor:pointer}
   .hero canvas{cursor:crosshair}
 
-  .mk{font-family:var(--mono); font-size:10px; letter-spacing:.16em; color:var(--moss); text-transform:uppercase}
-  .mk b{color:var(--green); font-weight:400}
-  .rule{display:flex; align-items:center; gap:14px; margin-bottom:34px}
-  .rule::after{content:""; flex:1; height:1px; background:var(--line)}
+  /* ---------- labels: tag with dot (Column) ---------- */
+  .mk{font-family:var(--mono); font-size:var(--text-caption); font-weight:500; letter-spacing:.08em; color:var(--steel); text-transform:uppercase}
+  .mk b{color:var(--navy); font-weight:500}
+  .rule{display:flex; align-items:center; gap:14px; margin-bottom:28px}
+  .rule::before{content:""; width:8px; height:8px; border-radius:50%; background:var(--seafoam); flex:0 0 auto}
+  .rule::after{content:""; flex:1; height:1px; background:var(--hairline)}
+  .dark .mk{color:var(--muted-dark)} .dark .mk b{color:var(--text-dark)}
+  .dark .rule::after{background:var(--line-dark)}
 
-  /* ---------- hero (NB-02) ---------- */
-  .hero{position:relative; height:100vh; height:100svh; min-height:520px; background:var(--n0); overflow:hidden; touch-action:pan-y}
+  /* ---------- hero (NB-02 particle field, on Column's Deep Surface) ---------- */
+  .hero{position:relative; height:100vh; height:100svh; min-height:520px; background:var(--ink); overflow:hidden; touch-action:pan-y; color:var(--text-dark)}
   .hero canvas{position:absolute; inset:0; width:100%; height:100%; display:block}
-  .frame{position:absolute; inset:12px; border:1px solid var(--line); pointer-events:none; opacity:.75}
-  .frame i{position:absolute; font:12px/1 var(--mono); font-style:normal; color:var(--moss)}
+  .frame{position:absolute; inset:12px; border:1px solid var(--line-dark); pointer-events:none; opacity:.8}
+  .frame i{position:absolute; font:12px/1 var(--mono); font-style:normal; color:var(--dim-dark)}
   .frame i:nth-child(1){top:-6px; left:-4px}
   .frame i:nth-child(2){top:-6px; right:-4px}
   .frame i:nth-child(3){bottom:-6px; left:-4px}
   .frame i:nth-child(4){bottom:-6px; right:-4px}
   .hud-top{position:absolute; top:28px; left:32px; right:32px; display:flex; justify-content:space-between; align-items:flex-start; pointer-events:none}
   .hud{display:flex; flex-direction:column; gap:6px}
-  .hud .l1{color:var(--moss)}
-  .hud .l2{color:var(--dim)}
+  .hud .mk{color:var(--dim-dark)}
+  .hud .l1{color:var(--fog)}
+  .hud .l2{color:var(--dim-dark)}
   .wordmark{display:flex; align-items:center; gap:9px; pointer-events:none}
   .wordmark svg{display:block}
-  .wordmark span{font:600 12px/1 var(--disp); letter-spacing:.34em; color:var(--cream); padding-left:.1em}
+  .wordmark span{font:600 12px/1 var(--sans); letter-spacing:.3em; color:var(--text-dark); padding-left:.1em}
   .hud-bottom{position:absolute; left:32px; right:32px; bottom:26px; display:flex; justify-content:space-between; align-items:flex-end; gap:16px; pointer-events:none}
   .phrase-block{display:flex; flex-direction:column; gap:10px}
-  .prog{width:148px; height:1px; background:var(--line); overflow:hidden}
-  .prog i{display:block; height:100%; background:var(--green); transform:scaleX(0); transform-origin:left}
-  .phrase-label{font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--dim)}
-  .phrase-label em{font-style:normal; color:var(--green)}
-  .adv{align-self:flex-start; margin-top:2px; cursor:pointer; pointer-events:auto; background:none; border:1px solid var(--line); color:var(--moss); font:10px var(--mono); letter-spacing:.16em; padding:7px 12px 6px; transition:color .2s, border-color .2s}
-  .adv:hover{color:var(--cream); border-color:var(--moss)}
+  .prog{width:148px; height:1px; background:var(--line-dark); overflow:hidden}
+  .prog i{display:block; height:100%; background:var(--seafoam); transform:scaleX(0); transform-origin:left}
+  .phrase-label{font-family:var(--mono); font-size:11px; letter-spacing:.1em; color:var(--fog)}
+  .phrase-label em{font-style:normal; color:var(--seafoam-400)}
+  .adv{align-self:flex-start; margin-top:2px; cursor:pointer; pointer-events:auto; background:rgba(255,255,255,.06); backdrop-filter:blur(6px); border:1px solid var(--line-dark); border-radius:var(--radius); color:var(--fog); font:500 11px var(--mono); letter-spacing:.1em; padding:7px 12px; transition:color .2s, border-color .2s, background .2s}
+  .adv:hover{color:var(--text-dark); border-color:var(--fog); background:rgba(255,255,255,.1)}
   .hero-right{display:flex; flex-direction:column; align-items:flex-end; gap:18px}
   .scroll-cue{display:flex; flex-direction:column; align-items:center; gap:8px}
-  .scroll-cue .tick{width:1px; height:34px; background:var(--moss); transform-origin:top; animation:tick 2.2s cubic-bezier(.6,0,.3,1) infinite}
+  .scroll-cue .mk{color:var(--dim-dark)}
+  .scroll-cue .tick{width:1px; height:34px; background:var(--dim-dark); transform-origin:top; animation:tick 2.2s cubic-bezier(.6,0,.3,1) infinite}
   @keyframes tick{0%{transform:scaleY(0)} 45%{transform:scaleY(1)} 100%{transform:scaleY(0); transform-origin:bottom}}
 
-  /* ---------- CTAs ---------- */
-  .cta{display:inline-block; background:var(--green); color:var(--n0); font-family:var(--disp); font-weight:800; font-size:17px; letter-spacing:-.01em; padding:14px 26px; border-radius:8px; text-decoration:none; pointer-events:auto; transition:all .4s var(--expo)}
-  .cta:hover{background:#5CA878; transform:translateY(-2px); box-shadow:0 8px 30px rgba(78,147,103,.28)}
-  .cta-note{display:block; margin-top:10px; font-size:13px; color:var(--moss)}
-  .cta2{display:inline-block; background:none; border:1px solid var(--green); color:var(--green); font-family:var(--disp); font-weight:700; font-size:16px; letter-spacing:-.01em; padding:13px 26px; border-radius:8px; text-decoration:none; transition:all .4s var(--expo)}
-  .cta2:hover{background:var(--deep); color:var(--cream); transform:translateY(-2px)}
+  /* ---------- buttons (Column: primary filled, secondary outlined, accent orange) ---------- */
+  .cta,.cta2{display:inline-flex; align-items:center; gap:8px; white-space:nowrap; font-family:var(--sans); font-size:14px; font-weight:500; line-height:1; letter-spacing:0; padding:12px 20px; border-radius:var(--radius); text-decoration:none; border:1px solid transparent; transition:all .35s var(--expo); pointer-events:auto}
+  .cta{background:var(--orange); color:var(--ink); box-shadow:var(--shadow-btn)}
+  .cta::after{content:"→"; font-weight:400}
+  .cta:hover{background:var(--peach); transform:translateY(-1px); box-shadow:var(--shadow-md)}
+  .cta.accent{background:var(--orange); color:var(--ink)}
+  .cta.accent:hover{background:var(--peach)}
+  .cta2{background:transparent; color:var(--navy); border-color:var(--navy); padding:12px 32px}
+  .cta2:hover{background:rgba(239,233,217,.08)}
+  .dark .cta2{color:var(--text-dark); border-color:var(--text-dark)}
+  .dark .cta2:hover{background:rgba(255,255,255,.08)}
+  .cta-note{display:block; margin-top:12px; font-size:14px; color:var(--steel)}
 
-  /* ---------- section chrome ---------- */
+  /* ---------- section chrome (1200 grid, 72px gaps, alternating canvas / white) ---------- */
   main{display:block}
-  .sec{max-width:1180px; margin:0 auto; padding:clamp(64px,10vw,132px) clamp(20px,5vw,56px)}
-  .sec--tight{padding-bottom:clamp(28px,4vw,48px)}
-  h2{font-family:var(--disp); font-weight:600; font-size:clamp(34px,5.4vw,66px); line-height:1.02; letter-spacing:-0.022em; color:var(--cream); max-width:17ch; text-wrap:balance}
-  .lead{margin-top:22px; max-width:60ch; color:var(--dim); font-size:clamp(15px,1.4vw,17px); line-height:1.65}
-  .lead b{color:var(--cream); font-weight:600}
+  .sec{padding:var(--section-gap) max(clamp(20px,5vw,80px), calc((100% - var(--page-max)) / 2))}
+  .sec.white{background:var(--white); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline)}
+  .sec--tight{padding-bottom:calc(var(--section-gap) * .6)}
+  h2{font-family:var(--sans); font-weight:600; font-size:clamp(var(--text-heading-sm),4.4vw,var(--text-heading-lg)); line-height:1.1; letter-spacing:-0.03em; color:var(--navy); max-width:18ch; text-wrap:balance}
+  .lead{margin-top:20px; max-width:62ch; color:var(--slate); font-size:var(--text-body-lg); line-height:var(--leading-body-lg)}
+  .lead b{color:var(--navy); font-weight:600}
+  .cta-row{margin-top:32px; display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+  .cta-row .cta-note{flex-basis:100%; margin-top:2px}
+  .offer .cta-row{margin-top:8px}
 
-  /* ---------- editorial passage (the story — no box) ---------- */
-  .passage{margin-top:clamp(36px,5vw,64px); max-width:66ch}
-  .passage p{color:var(--dim); font-size:clamp(16px,1.7vw,19px); line-height:1.7; margin-bottom:18px}
-  .passage p.punch{color:var(--cream); font-weight:600}
-  .passage p.punch em{font-style:normal; color:var(--green)}
+  /* ---------- editorial passage (the story, no box) ---------- */
+  .passage{margin-top:40px; max-width:66ch}
+  .passage p{color:var(--slate); font-size:var(--text-body-lg); line-height:1.5; margin-bottom:20px}
+  .passage p.punch{color:var(--navy); font-weight:500}
+  .passage p.punch em{font-style:normal; color:var(--seafoam-700); font-weight:600}
 
-  /* ---------- hairline band (the gift · who-not-for) ---------- */
-  .band{border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:clamp(30px,4.4vw,52px) 0; margin-top:clamp(40px,6vw,72px)}
-  .band .bmk{margin-bottom:26px}
-  .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:clamp(20px,3.5vw,44px)}
-  .step .no{font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--green); display:block; margin-bottom:10px}
-  .step p{color:var(--dim); font-size:15.5px; line-height:1.6}
-  .bigline{margin-top:clamp(28px,4vw,44px); text-align:center; font-family:var(--disp); font-style:italic; font-size:clamp(17px,2.4vw,24px); color:var(--dim)}
-  .bigline em{font-style:italic; color:var(--green)}
-  .notfor .statement{font-family:var(--disp); font-style:italic; font-size:clamp(18px,2.6vw,27px); line-height:1.35; color:var(--cream); max-width:30ch; text-wrap:balance}
-  .notfor .follow{margin-top:16px; color:var(--dim); font-size:15.5px; line-height:1.6; max-width:62ch}
+  /* ---------- Monday: bordered content cards (Column) ---------- */
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px; margin-top:40px}
+  .tile{background:var(--white); border-radius:var(--radius); box-shadow:var(--shadow-card); padding:var(--card-pad); transition:box-shadow .35s var(--expo), transform .35s var(--expo)}
+  .tile:hover{box-shadow:var(--shadow-md), var(--shadow-card); transform:translateY(-2px)}
+  .tile .k{font-family:var(--mono); font-size:var(--text-caption); letter-spacing:.06em; color:var(--steel); text-transform:uppercase}
+  .tile .v{font-size:var(--text-subheading-sm); font-weight:500; letter-spacing:-0.01em; margin-top:12px; color:var(--navy); line-height:1.2}
+  .tile .v em{font-style:normal; color:var(--seafoam-700)}
+  .tile .s{font-size:14px; color:var(--steel); margin-top:10px; line-height:1.5}
 
-  /* ---------- Monday: stat-style rows (no boxes) ---------- */
-  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:clamp(20px,3.5vw,44px); margin-top:clamp(34px,5vw,56px)}
-  .tile{border-top:1px solid var(--line); padding-top:18px; transition:border-color .5s var(--expo)}
-  .tile:hover{border-top-color:var(--green)}
-  .tile .k{font-family:var(--mono); font-size:10px; letter-spacing:.14em; color:var(--moss); text-transform:uppercase}
-  .tile .v{font-size:clamp(20px,2.2vw,26px); font-weight:700; letter-spacing:-.015em; margin-top:10px; color:var(--cream); line-height:1.25}
-  .tile .v em{font-style:normal; color:var(--green)}
-  .tile .s{font-size:14px; color:var(--dim); margin-top:8px; line-height:1.55}
+  /* ---------- hairline band (who-not-for) ---------- */
+  .band{border-top:1px solid var(--hairline); padding-top:40px; margin-top:48px}
+  .band .bmk{margin-bottom:20px}
+  .notfor .statement{font-size:var(--text-subheading-lg); font-weight:500; line-height:1.2; letter-spacing:-0.01em; color:var(--navy); max-width:32ch; text-wrap:balance}
+  .notfor .follow{margin-top:16px; color:var(--slate); font-size:var(--text-body); line-height:1.5; max-width:62ch}
 
-  /* ---------- the offer ---------- */
-  .offer{background:var(--n1); border:1px solid var(--deep); border-radius:10px; padding:clamp(24px,3.5vw,34px); margin-top:34px; max-width:78ch}
-  .offer .omk{display:block; margin-bottom:18px}
-  .offer ul{margin:0 0 22px; padding:0; list-style:none}
-  .offer li{padding:11px 0 11px 28px; position:relative; color:var(--cream); font-size:16px; line-height:1.55; border-bottom:1px solid var(--line)}
+  /* ---------- the offer: product card ---------- */
+  .offer{background:var(--charcoal); border-radius:var(--radius); box-shadow:var(--shadow-product); padding:clamp(24px,3.5vw,40px); margin-top:40px; max-width:76ch}
+  .offer .omk{display:block; margin-bottom:20px}
+  .offer ul{margin:0 0 24px; padding:0; list-style:none}
+  .offer li{padding:12px 0 12px 30px; position:relative; color:var(--slate); font-size:var(--text-body); line-height:1.5; border-bottom:1px solid var(--hairline)}
   .offer li:last-child{border-bottom:0}
-  .offer li::before{content:"✓"; position:absolute; left:2px; color:var(--green); font-weight:700}
-  .offer .gline{color:var(--cream); font-size:16.5px; line-height:1.6; margin:0 0 22px; border-left:2px solid var(--green); padding-left:14px}
-  .after-offer{margin-top:16px; font-size:14px; color:var(--moss); max-width:72ch; line-height:1.65}
-  .after-offer .u{color:var(--dim)}
+  .offer li::before{content:""; position:absolute; left:2px; top:17px; width:14px; height:14px; border-radius:50%; background:var(--deep-sea); box-shadow:inset 0 0 0 1px var(--seafoam)}
+  .offer li::after{content:""; position:absolute; left:6px; top:21px; width:6px; height:3px; border-left:1.5px solid var(--text-dark); border-bottom:1.5px solid var(--text-dark); transform:rotate(-45deg)}
+  .offer .gline{color:var(--navy); font-size:var(--text-body); line-height:1.5; margin:0 0 24px; border-left:2px solid var(--seafoam-700); padding-left:16px}
 
-  /* ---------- waitlist form ---------- */
+  /* ---------- waitlist form (Column inputs) ---------- */
   .wl{margin-top:4px}
   .wl .mk{display:block; margin-bottom:10px}
   .wl-row{display:flex; gap:10px; flex-wrap:wrap}
-  .wl-in{flex:1 1 240px; min-width:0; background:var(--n0); border:1px solid var(--line); border-radius:8px; color:var(--cream); font-family:var(--disp); font-size:16px; padding:14px 16px; outline:none; transition:border-color .3s}
-  .wl-in::placeholder{color:var(--moss)}
-  .wl-in:focus{border-color:var(--green)}
-  .wl-btn{border:0; cursor:pointer; flex:0 0 auto}
+  .wl-in{flex:1 1 240px; min-width:0; background:var(--white); border:1px solid var(--hairline); border-radius:var(--radius); color:var(--navy); font-family:var(--sans); font-size:var(--text-body); padding:12px 16px; outline:none; box-shadow:var(--shadow-card); transition:border-color .2s, box-shadow .2s}
+  .wl-in::placeholder{color:var(--fog)}
+  .wl-in:focus{border-color:var(--navy); box-shadow:0 0 0 3px rgba(17,26,74,.08)}
+  .wl-btn{border:0; cursor:pointer; flex:0 0 auto; font-family:var(--sans)}
   .wl-btn[disabled]{opacity:.6; cursor:wait; transform:none}
-  .wl-done{margin-top:14px; color:var(--green); font-size:16px; line-height:1.55}
-  .wl-err{margin-top:14px; color:#D9A066; font-size:14px; line-height:1.55}
-  .wl-err a{color:var(--cream)}
+  .wl-done{margin-top:14px; color:var(--seafoam-700); font-size:var(--text-body); line-height:1.5}
+  .wl-err{margin-top:14px; color:var(--orange); font-size:14px; line-height:1.5}
+  .wl-err a{color:var(--navy)}
   .hp{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
-
-  /* ---------- three spots + waitlist callout ---------- */
-  .spots{margin-top:clamp(28px,4vw,44px); font-family:var(--disp); font-style:italic; font-size:clamp(20px,2.8vw,30px); line-height:1.35; color:var(--cream); max-width:34ch; text-wrap:balance}
-  .spots em{font-style:italic; color:var(--green)}
+  .spots{margin-top:32px; font-size:var(--text-subheading-sm); font-weight:400; line-height:1.4; color:var(--slate); max-width:40ch; text-wrap:balance}
+  .spots em{font-style:normal; color:var(--navy); font-weight:500}
 
   /* ---------- verbs: full-bleed band ---------- */
-  .verbs-bleed{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--n1); padding:26px clamp(20px,5vw,56px); display:flex; flex-wrap:wrap; gap:10px 0; justify-content:space-between; align-items:center; font-family:var(--mono); font-size:clamp(11px,1.7vw,15px); letter-spacing:.3em; color:var(--dim); text-transform:uppercase}
-  .verbs-bleed span:first-child{color:var(--green)}
-  .verbs-bleed i{font-style:normal; color:var(--moss)}
+  .verbs-bleed{border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); background:var(--canvas); padding:24px clamp(20px,5vw,80px); display:flex; flex-wrap:wrap; gap:10px 0; justify-content:center; font-family:var(--mono); font-size:var(--text-caption); font-weight:500; letter-spacing:.14em; color:var(--steel)}
+  .verbs-bleed span{padding:0 14px}
+  .verbs-bleed span:first-child{color:var(--seafoam-700)}
+  .verbs-bleed i{font-style:normal; color:var(--mist)}
 
-  /* ---------- closing banner: community + socials ---------- */
-  .closer{background:var(--n1); border-top:1px solid var(--line); padding:clamp(48px,7vw,84px) clamp(20px,5vw,56px) clamp(36px,5vw,56px); text-align:center}
-  .closer .inner{max-width:640px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:18px}
-  .closer h3{font-family:var(--disp); font-weight:600; font-size:clamp(21px,2.8vw,30px); letter-spacing:-.015em; color:var(--cream); text-wrap:balance}
-  .closer .sub{color:var(--dim); font-size:15px; line-height:1.6; max-width:46ch}
-  .closer .divider{width:64px; height:1px; background:var(--line); margin:22px 0 6px}
+  /* ---------- closing banner: Deep Surface inversion ---------- */
+  .closer{background:var(--ink); color:var(--text-dark); padding:clamp(56px,7vw,96px) clamp(20px,5vw,80px) 48px; text-align:center}
+  .closer .inner{max-width:680px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:18px}
+  .closer h3{font-family:var(--sans); font-weight:600; font-size:var(--text-subheading-lg); letter-spacing:-0.01em; color:var(--text-dark); text-wrap:balance}
+  .closer .sub{color:var(--fog); font-size:var(--text-body); line-height:1.5; max-width:48ch}
+  .closer .ctas{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:6px}
+  .closer .divider{width:64px; height:1px; background:var(--line-dark); margin:24px 0 6px}
   .socials{display:flex; gap:26px; align-items:center; justify-content:center}
-  .socials a{display:inline-flex; color:var(--moss); transition:all .4s var(--expo)}
-  .socials a:hover{color:var(--green); transform:translateY(-3px)}
-  .socials svg{width:34px; height:34px; fill:currentColor}
-  .closer .name{margin-top:8px}
-  .closer .ctas{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
+  .socials a{display:inline-flex; color:var(--fog); transition:all .35s var(--expo)}
+  .socials a:hover{color:var(--text-dark); transform:translateY(-2px)}
+  .socials svg{width:30px; height:30px; fill:currentColor}
+  .closer .name{margin-top:8px; color:var(--dim-dark)}
 
   /* ---------- responsive ---------- */
   @media (max-width:760px){
     .hud-top{top:22px; left:24px; right:24px}
     .hud-bottom{left:24px; right:24px; bottom:22px}
     .scroll-cue{display:none}
+    :root{--section-gap:56px}
   }
   @media (max-width:600px){
     .hud .opt{display:none}
     .wordmark span{display:none}
-  }
-  @media (max-width:600px){
-    .verbs-bleed{flex-wrap:nowrap; justify-content:center; gap:0 8px; font-size:10px; letter-spacing:.1em; padding-left:12px; padding-right:12px}
+    .verbs-bleed{flex-wrap:nowrap; justify-content:center; gap:0 4px; font-size:10px; letter-spacing:.1em; padding-left:12px; padding-right:12px}
+    .verbs-bleed span{padding:0 8px}
   }
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto}
     .scroll-cue .tick{animation:none; transform:scaleY(1)}
-    .prog{visibility:hidden}
-    .hero canvas{cursor:default}
-    .tile,.cta,.cta2,.socials a{transition:none}
+    .tile,.cta,.cta2{transition:none}
   }
-
-  </style>
+</style>
 </head>
 <body>
 
 <!-- ================= HERO — the particle field ================= -->
-<div class="hero" id="hero">
-  <canvas id="field" aria-label="A field of particles forming the phrases: stop being the bottleneck, get your time back, learn what to automate, and the Routine OS mark"></canvas>
+<div class="hero dark" id="hero">
+  <canvas id="field" aria-label="A field of particles forming the phrases: find the real problem, move the needle, learn what to automate, and the Routine OS mark"></canvas>
   <div class="frame" aria-hidden="true"><i>+</i><i>+</i><i>+</i><i>+</i></div>
   <header class="hud-top">
     <div class="hud mk" aria-live="off">
-      <span class="l1">ROUTINE OS · <span class="opt">NIGHT BOARD · </span>BY KOSTA KOROVESSIS</span>
+      <span class="l1">ROUTINE OS · <span class="opt">SEARCHLIGHT AUTOMATIONS · </span>BY KOSTA KOROVESSIS</span>
       <span class="l2"><span id="seq">SEQ 01/04</span> · <span id="pts">&mdash; PTS</span></span>
     </div>
     <div class="wordmark" aria-label="Routine OS">
@@ -203,11 +229,11 @@
   <div class="hud-bottom">
     <div class="phrase-block">
       <div class="prog" aria-hidden="true"><i id="progBar"></i></div>
-      <div class="phrase-label"><em id="phraseNo">01</em> — <span id="phraseName">THE BOTTLENECK</span> · KEPT: <em id="keptName">BOTTLENECK</em></div>
+      <div class="phrase-label"><em id="phraseNo">01</em> — <span id="phraseName">THE PROBLEM</span> · KEPT: <em id="keptName">PROBLEM</em></div>
       <button class="adv" id="advance" type="button">ADVANCE &#9656;</button>
     </div>
     <div class="hero-right">
-      <a class="cta" href="#waitlist">Join the waitlist</a>
+      <a class="cta accent" href="https://calendly.com/kosta-searchlightautomations/new-meeting">Book your hour</a>
       <div class="scroll-cue" aria-hidden="true">
         <span class="mk">SCROLL</span>
         <span class="tick"></span>
@@ -217,90 +243,81 @@
 </div>
 
 <main>
-  <!-- ================= SC.01 · THE QUESTION ================= -->
+  <!-- ================= SC.01 · THE PROBLEM ================= -->
   <section class="sec">
-    <div class="rule"><span class="mk">SC.01 · <b>THE QUESTION</b></span></div>
-    <h2>Are you still the one everything waits on?</h2>
-    <p class="lead">Every decision, every draft, every fire routes through you. That's not a you problem. <b>That's a missing system, and I install it.</b></p>
-    <p style="margin-top:26px">
-      <a class="cta" href="#waitlist">Join the waitlist</a>
-      <span class="cta-note">Drop your email. I'll write to you when a spot opens.</span>
+    <div class="rule"><span class="mk">SC.01 · <b>THE PROBLEM</b></span></div>
+    <h2>Most automations save time. Few move the business.</h2>
+    <p class="lead">Every business has one thing holding it back. Fix that, and the money follows. Routine OS starts there. <b>Not with the tool. With the problem.</b></p>
+    <p class="cta-row">
+      <a class="cta" href="https://calendly.com/kosta-searchlightautomations/new-meeting">Book your hour with Kosta</a>
+      <span class="cta-note">One hour, live, on your business. You leave with a routine running and a plan for the next two.</span>
     </p>
   </section>
 
-  <!-- ================= SC.02 · THE "OKAY" EMAILS + AUTHORITY ================= -->
-  <section class="sec sec--tight">
-    <div class="rule"><span class="mk">SC.02 · <b>THE "OKAY" EMAILS</b></span></div>
-    <h2>You've tried AI. It writes "okay" emails that sound like nobody.</h2>
-    <p class="lead">Chat answers questions. It doesn't run anything. Out of the box, AI knows nothing about your business, and every new chat starts from zero. <b>A stranger's first day, every single day.</b></p>
+  <!-- ================= SC.02 · HOW IT WORKS ================= -->
+  <section class="sec white">
+    <div class="rule"><span class="mk">SC.02 · <b>HOW IT WORKS</b></span></div>
+    <h2>First you learn. Then we build what pays.</h2>
+    <p class="lead">You don't need to code. You need to see it work once, on your own business, with someone next to you. <b>That's the hour.</b> After it, you know what to automate, how to build it, and how to tell if it paid.</p>
     <div class="passage">
-      <p>I spent 25 years in brick-and-mortar operations, with over a decade of leading teams of up to 50. I still lost a year trying to fix AI's answers with sharper prompts and new tools. None of it held, because even my best prompt was talking to a stranger.</p>
-      <p class="punch">What fixed it was building one place that holds my business: what I sell, who my customers are, how I decide, what good looks like. The AI never got smarter. <em>It finally knew my business.</em> I run my own businesses on this exact system today.</p>
+      <p>I spent 25 years in business operations, over a decade of it leading teams of up to 50. I still lost a year chasing AI tools that saved minutes and changed nothing.</p>
+      <p class="punch">What worked was simpler. Pick the one problem that costs real money. Build one routine around it. Count what it made, not the minutes it saved. <em>I run my own businesses on this today.</em></p>
     </div>
   </section>
 
   <!-- ================= RESERVED · SOCIAL PROOF (Kosta, 7/26) =================
-       Slot held for social proof about who Kosta is, close to the top.
-       Fills later with real proof from the Routine OS community
-       (member wins, screenshots, the cool stuff). Sits right after the
-       authority story so the story gets backed the moment proof exists.
+       Slot held for social proof: the first counted wins from the hour
+       (before and after, in the owner's numbers). Sits right after the
+       story so the story gets backed the moment proof exists.
        ========================================================================= -->
 
-  <!-- ================= SC.03 · MONDAY (moved up, per your reorder) ================= -->
-  <section class="sec sec--tight">
-    <div class="rule"><span class="mk">SC.03 · <b>MONDAY, WITH THE SYSTEM IN</b></span></div>
-    <h2>What Monday looks like with the system in.</h2>
+  <!-- ================= SC.03 · WHAT WE COUNT ================= -->
+  <section class="sec">
+    <div class="rule"><span class="mk">SC.03 · <b>WHAT WE COUNT</b></span></div>
+    <h2>Hours saved is not the score. Revenue and profit are.</h2>
     <div class="tiles">
-      <div class="tile"><div class="k">Before you sit down</div><div class="v">Inbox already <em>triaged</em></div><div class="s">What needs you, what your team can take, what to drop.</div></div>
-      <div class="tile"><div class="k">Before every meeting</div><div class="v">The prep is <em>waiting</em></div><div class="s">And the follow-ups draft themselves after.</div></div>
-      <div class="tile"><div class="k">Under your name</div><div class="v">Drafts in <em>your voice</em></div><div class="s">Not a robot with good manners. You, on paper.</div></div>
-      <div class="tile"><div class="k">On one page</div><div class="v">The hours, <em>proven</em></div><div class="s">Your own numbers, counted from day one.</div></div>
+      <div class="tile"><div class="k">More customers</div><div class="v">Leads answered in <em>minutes</em></div><div class="s">Not days. And the follow-up that actually happens.</div></div>
+      <div class="tile"><div class="k">More per customer</div><div class="v">The ones who <em>come back</em></div><div class="s">Repeat orders, the next sale, the customer who stays.</div></div>
+      <div class="tile"><div class="k">Lower cost</div><div class="v">Less rework, <em>fewer errors</em></div><div class="s">Only when cost is the thing holding you back.</div></div>
+      <div class="tile"><div class="k">The rule</div><div class="v">One number, <em>picked first</em></div><div class="s">Before anything gets built, we agree on what it should move.</div></div>
     </div>
-    <p class="lead" style="margin-top:34px">Nothing sends, posts, or changes anything without your say-so. <b>It drafts; you decide.</b> That rule never comes off.</p>
+    <p class="lead" style="margin-top:32px">Nothing sends, changes, or spends without your say-so. <b>It drafts; you decide.</b> That rule never comes off.</p>
     <div class="band notfor">
       <span class="mk bmk" style="display:block">WHO THIS IS NOT FOR</span>
-      <p class="statement">If you want someone to automate a broken process and walk away, I'm not your guy.</p>
-      <p class="follow">A routine built on a mess just runs the mess faster. This works for leaders who'll sit with me, decide what good looks like, and keep the final say on everything that leaves their desk.</p>
+      <p class="statement">If you want a tool bolted on and nobody asking why, I'm not your guy.</p>
+      <p class="follow">This works for owners who'll sit with me for an hour, name the real problem, and keep the final say on everything that runs.</p>
     </div>
   </section>
 
-  <!-- ================= SC.04 · THE FOUNDING BUILDS ================= -->
-  <section class="sec">
-    <div class="rule"><span class="mk">SC.04 · <b>THE FOUNDING BUILDS</b></span></div>
-    <h2>I build this system for a few leaders at a time. The waitlist is open.</h2>
-    <p class="lead">Leaders who want the whole thing running for them, without adding hours to learn it. <b>I build it with you, on your machine, in about three weeks:</b></p>
+  <!-- ================= SC.04 · THE HOUR ================= -->
+  <section class="sec white">
+    <div class="rule"><span class="mk">SC.04 · <b>THE HOUR</b></span></div>
+    <h2>One hour. One routine running. You know what's next.</h2>
+    <p class="lead">Live, on a call, on your business. <b>You drive, I guide.</b> Here is how it goes:</p>
     <div class="offer">
-      <span class="mk omk">THE BUILD · WHAT YOU GET</span>
+      <span class="mk omk">THE HOUR · WHAT HAPPENS</span>
       <ul>
-        <li>Your world, your numbers, and your voice, learned in sittings. You talk; it writes. You never fill in a form.</li>
-        <li>Ten routines built on your real work: the inbox, the meetings, the updates, the reports that eat your week.</li>
-        <li>Your tools connected: email, calendar, notes. It reads your real work, not pasted snippets.</li>
-        <li>Two pieces that run without you: your morning sort, and your meeting pipeline.</li>
-        <li>Your hours on one page, on your phone, counted from day one.</li>
-        <li>Ninety days of tuning after handoff, and a direct line to me the whole way.</li>
+        <li>Before we talk, you set up the workspace and try one routine. Get as far as you can. Stop where you're stuck.</li>
+        <li>We start where you stopped. Then we look at where your business gets stuck.</li>
+        <li>We build one routine start to finish, with at least one part running on its own.</li>
+        <li>You learn how to tell if it paid. In numbers, not in hours.</li>
+        <li>You leave knowing the next two routines worth building, and why.</li>
+        <li>After the call, I send you where to go next, and I check in to see how it went.</li>
       </ul>
-      <p class="gline">If your own numbers don't show 10+ hours a week coming back within thirty days of handoff, I keep building free until they do.</p>
-      <form class="wl" id="waitlist" name="waitlist" method="POST" action="/ros/?joined=1#waitlist" data-netlify="true" netlify-honeypot="company" novalidate>
-        <input type="hidden" name="form-name" value="waitlist">
-        <p class="hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off"></label></p>
-        <label class="mk" for="wl-email">JOIN THE WAITLIST</label>
-        <div class="wl-row">
-          <input class="wl-in" type="email" name="email" id="wl-email" required autocomplete="email" inputmode="email" placeholder="you@yourcompany.com" aria-label="Your email">
-          <button class="cta wl-btn" type="submit">Join the waitlist</button>
-        </div>
-        <span class="cta-note wl-note">One email when a spot opens. Nothing else. No sales sequence.</span>
-        <p class="wl-done" role="status" aria-live="polite" hidden>You're on the list. A confirmation is on its way to your inbox.</p>
-        <p class="wl-err" role="alert" hidden>That didn't go through. Check the email and try again, or write to <a href="mailto:kosta@searchlightautomations.com">kosta@searchlightautomations.com</a>.</p>
-      </form>
+      <p class="gline">Nothing is sold on the call. It's an hour of building and learning. If something is worth building after that, you'll see it after your training session.</p>
+      <p class="cta-row">
+        <a class="cta" href="https://calendly.com/kosta-searchlightautomations/new-meeting">Book your hour</a>
+        <a class="cta2" href="https://www.skool.com/ai-leader-os-2965/about">Start in the free community</a>
+        <span class="cta-note">Not ready for a call? The community has the same workspace, free. Start there.</span>
+      </p>
     </div>
-    <p class="spots">A few spots at a time. I build them personally, one at a time, <em>and the waitlist runs first come, first served.</em></p>
   </section>
 
 </main>
 
-<!-- ================= the verbs, full-bleed ================= -->
-<div class="verbs-bleed" aria-label="The five verdicts">
-  <span>KEEP</span><i>·</i><span>FIX</span><i>·</i><span>AUTOMATE</span><i>·</i><span>DELEGATE</span><i>·</i><span>RETIRE</span>
+<!-- ================= the routine pass, full-bleed ================= -->
+<div class="verbs-bleed" aria-label="The routine pass, in order">
+  <span>QUESTION</span><i>·</i><span>DELETE</span><i>·</i><span>SIMPLIFY</span><i>·</i><span>SPEED UP</span><i>·</i><span>AUTOMATE</span>
 </div>
 
 <!-- ================= RESERVED · THE LEAD MAGNET (Kosta, 7/26) =================
@@ -312,21 +329,21 @@
      ============================================================================ -->
 
 <!-- ================= closing banner: community + socials ================= -->
-<div class="closer">
+<div class="closer dark">
   <div class="inner">
-    <span class="mk">PREFER TO BUILD IT YOURSELF?</span>
-    <h3>The same system, taught by doing.</h3>
-    <p class="sub">The Routine OS community: build your own workspace one win at a time, with the founder in the room daily. Free to join.</p>
+    <span class="mk">PREFER TO START ON YOUR OWN?</span>
+    <h3>The free community. Same system, taught by doing.</h3>
+    <p class="sub">Download the workspace, follow the setup, try a routine. I'm in the community answering questions every day. If you need me, book the hour.</p>
     <span class="ctas">
       <a class="cta2" href="https://www.skool.com/ai-leader-os-2965/about">Visit the Routine OS community &rarr;</a>
-      <a class="cta2" href="https://calendly.com/kosta-searchlightautomations/new-meeting">Book an hour with Kosta &rarr;</a>
+      <a class="cta2" href="https://calendly.com/kosta-searchlightautomations/new-meeting">Book your hour &rarr;</a>
     </span>
     <span class="divider" aria-hidden="true"></span>
     <span class="socials">
       <a href="https://www.youtube.com/@KostaKorovessisAI" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
       <a href="https://www.linkedin.com/in/konstadinos-korovessis-2327983a3/" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.2V9h3.4v1.6h.1a3.8 3.8 0 0 1 3.4-1.9c3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5z"/></svg></a>
     </span>
-    <span class="mk name">ROUTINE OS · KOSTA KOROVESSIS</span>
+    <span class="mk name">ROUTINE OS · SEARCHLIGHT AUTOMATIONS · KOSTA KOROVESSIS</span>
   </div>
 </div>
 
@@ -351,14 +368,14 @@
   const keptEl = document.getElementById("keptName");
   const progEl = document.getElementById("progBar");
 
-  const BG = "#0A0F0C", CREAM = "#EFE9D9", GREEN = "#4E9367";
+  const BG = "#0A0F0C", CREAM = "#EFE9D9", GREEN = "#4E9367"; // the original NB-11 palette (Kosta, 2026-09-06)
   const DUR = 4600, SWEEP = 0.5;
 
   const PHRASES = [
-    { name: "THE BOTTLENECK",     kept: "BOTTLENECK", words: [["STOP",0],["BEING",0],["THE",0],["BOTTLENECK.",1]] },
-    { name: "THE HOURS",          kept: "BACK",    words: [["GET",0],["YOUR",0],["TIME",0],["BACK.",1]] },
-    { name: "THE DECIDING",       kept: "AUTOMATE", words: [["LEARN",0],["WHAT",0],["TO",0],["AUTOMATE.",1]] },
-    { name: "ROUTINE OS",          kept: "THE CHECK", glyph: true }
+    { name: "THE PROBLEM",        kept: "PROBLEM",  words: [["FIND",0],["THE",0],["REAL",0],["PROBLEM.",1]] },
+    { name: "THE NEEDLE",         kept: "NEEDLE",   words: [["MOVE",0],["THE",0],["NEEDLE.",1]] },
+    { name: "THE LEARNING",       kept: "AUTOMATE", words: [["LEARN",0],["WHAT",0],["TO",0],["AUTOMATE.",1]] },
+    { name: "ROUTINE OS",         kept: "THE CHECK", glyph: true }
   ];
 
   let W = 0, H = 0, DPR = 1, N = 0, M = 0;
@@ -373,7 +390,7 @@
 
   /* ---------- phrase rasterisation ---------- */
   function fontStr(s) {
-    return '700 ' + s + 'px "Segoe UI Variable Display","Segoe UI",system-ui,sans-serif';
+    return '600 ' + s + 'px "Inter",ui-sans-serif,system-ui,"Segoe UI",sans-serif';
   }
   function spaceW(size) {
     const w = octx.measureText(" ").width;
