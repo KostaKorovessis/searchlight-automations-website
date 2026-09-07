@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Before our hour · Routine OS</title>
+<meta name="description" content="You booked an hour with Kosta. Here is how to get the most out of it: six steps to try on your own first, and some things to think about.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='1' y='1' width='22' height='22' rx='6' fill='%234E9367'/%3E%3Cpath d='M7 12.4 L10.6 16 L17 8.6' fill='none' stroke='%23EFE9D9' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+  /* ============================================================
+     ROUTINE OS · the prep page (T053, 2026-09-06)
+     The booking email links here. Same chassis as the site:
+     dark ground, cream type, one green. Steps in text; the
+     video slot fills itself when VIDEO_URL below is set.
+     ============================================================ */
+  :root{
+    --n0:#0A0F0C; --n1:#0F1712; --n2:#141F18; --n3:#1B2820;
+    --line:#26312A; --cream:#EFE9D9; --dim:#B9B4A4; --moss:#78816F;
+    --green:#4E9367; --deep:#2E5C41;
+    --disp:"Segoe UI Variable Display","Segoe UI",system-ui,sans-serif;
+    --mono:ui-monospace,"Cascadia Mono",Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--n0); color:var(--cream); font-family:var(--disp); -webkit-font-smoothing:antialiased; line-height:1.6}
+  ::selection{background:var(--deep); color:var(--cream)}
+  a{color:var(--green)}
+  .wrap{max-width:680px; margin:0 auto; padding:clamp(36px,7vw,84px) clamp(20px,5vw,40px) clamp(48px,7vw,84px)}
+  .mk{font-family:var(--mono); font-size:11px; letter-spacing:.16em; color:var(--moss); text-transform:uppercase}
+  .mk b{color:var(--green); font-weight:400}
+  h1{font-weight:600; font-size:clamp(32px,6vw,52px); line-height:1.04; letter-spacing:-.02em; margin:14px 0 18px; text-wrap:balance}
+  .lead{font-size:clamp(17px,2.2vw,20px); color:var(--dim); max-width:52ch}
+  .lead em{font-style:normal; color:var(--cream)}
+  .video{margin:36px 0 8px}
+  .video .frame{position:relative; width:100%; aspect-ratio:16/9; background:var(--n2); border:1px solid var(--line); border-radius:12px; overflow:hidden}
+  .video iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+  .video .soon{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:var(--moss); font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase}
+  section{margin-top:clamp(40px,6vw,64px)}
+  .rule{display:flex; align-items:center; gap:14px; margin-bottom:22px}
+  .rule::after{content:""; flex:1; height:1px; background:var(--line)}
+  ol.steps{list-style:none; counter-reset:s; display:grid; gap:18px}
+  ol.steps li{counter-increment:s; position:relative; padding:18px 20px 18px 64px; background:var(--n1); border:1px solid var(--line); border-radius:12px}
+  ol.steps li::before{content:counter(s,decimal-leading-zero); position:absolute; left:20px; top:20px; font-family:var(--mono); font-size:12px; letter-spacing:.18em; color:var(--green)}
+  ol.steps b{display:block; font-size:17px; font-weight:600; margin-bottom:4px; letter-spacing:-.01em}
+  ol.steps p{color:var(--dim); font-size:15px}
+  ul.bring{list-style:none; display:grid; gap:12px}
+  ul.bring li{padding-left:22px; position:relative; font-size:16px}
+  ul.bring li::before{content:""; position:absolute; left:0; top:.62em; width:9px; height:9px; border-radius:50%; background:var(--green)}
+  .calm{margin-top:clamp(36px,5vw,56px); padding:22px 24px; border-left:2px solid var(--green); background:var(--n1); border-radius:0 12px 12px 0}
+  .calm p{color:var(--dim); font-size:16px}
+  .calm p em{font-style:normal; color:var(--cream)}
+  .cta{display:inline-block; margin-top:18px; background:var(--green); color:var(--n0); font-weight:800; font-size:16px; padding:13px 24px; border-radius:8px; text-decoration:none}
+  .cta2{display:inline-block; margin-top:18px; margin-left:10px; border:1px solid var(--green); color:var(--green); font-weight:700; font-size:15px; padding:12px 22px; border-radius:8px; text-decoration:none}
+  footer{border-top:1px solid var(--line); background:var(--n1); text-align:center; padding:36px 20px}
+  footer .mk{display:block; margin-top:10px}
+  @media (max-width:520px){ .cta2{margin-left:0} ol.steps li{padding-left:54px} ol.steps li::before{left:16px} }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <span class="mk"><b>Routine OS</b> · before our hour</span>
+  <h1>You booked an hour. Here's how to get the most out of it.</h1>
+  <p class="lead">One hour goes fast, and <em>you really do get out what you put in.</em> So here is the plan to get the most out of it.</p>
+
+  <div class="video" id="video" hidden>
+    <div class="frame"><div class="soon" id="videoSoon">Short video coming</div></div>
+  </div>
+
+  <section>
+    <div class="rule"><span class="mk">Six steps, in order</span></div>
+    <ol class="steps">
+      <li><b>Join the free community.</b><p>That is where the workspace lives, and where I am every day. <a href="https://www.skool.com/ai-leader-os-2965/about">Join here.</a></p></li>
+      <li><b>Download the workspace and install Claude Code.</b><p>Follow the Classroom instructions. They walk you through every click, Windows or Mac.</p></li>
+      <li><b>Set it up.</b><p>Follow the community instructions. Claude Code offers you a first-time interview. It takes under an hour and ends with your first routine on your Board.</p></li>
+      <li><b>Try that one routine.</b><p>Let it run once. See what it does. Nothing gets sent or changed without your say-so.</p></li>
+      <li><b>If you get stuck, ask in the community.</b><p>Either I or someone will help you as soon as we can.</p></li>
+      <li><b>Write down any and all questions.</b><p>This is the real unlock to making our hour together valuable. There's no such thing as a dumb question.</p></li>
+    </ol>
+  </section>
+
+  <section>
+    <div class="rule"><span class="mk">Some things to think about ahead of the hour</span></div>
+    <ul class="bring">
+      <li>What you hope to get out of the hour together.</li>
+      <li>Things you didn't understand in the set up.</li>
+      <li>What parts of your work you want to automate.</li>
+    </ul>
+  </section>
+
+  <div class="calm">
+    <p>If you get stuck before the call, that's fine. <em>That's where we'll start.</em></p>
+    <a class="cta" href="https://www.skool.com/ai-leader-os-2965/about">Join the community &rarr;</a>
+    <a class="cta2" href="https://calendly.com/kosta-searchlightautomations/new-meeting">Need to move the time?</a>
+  </div>
+</main>
+
+<footer>
+  <span class="mk">Routine OS · Searchlight Automations · Kosta Korovessis</span>
+</footer>
+
+<script>
+  // Paste the YouTube embed URL here when the prep video is filmed, e.g.
+  // "https://www.youtube.com/embed/VIDEO_ID". Empty = the slot stays hidden.
+  const VIDEO_URL = "";
+  (function(){
+    const box = document.getElementById("video");
+    if (!VIDEO_URL) return;
+    const frame = box.querySelector(".frame");
+    frame.innerHTML = '<iframe src="' + VIDEO_URL + '" title="Before our hour" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    box.hidden = false;
+  })();
+</script>
+</body>
+</html>
