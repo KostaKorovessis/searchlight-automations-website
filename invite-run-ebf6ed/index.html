@@ -89,7 +89,12 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .tab b { font-family: var(--font); font-weight: 600; font-size: 16px; text-transform: none; color: var(--title); letter-spacing: -.01em; }
 .tab[aria-selected=true] { background: var(--title); border-color: var(--title); color: var(--bg); }
 .tab.newday { margin-left: 8px; }
-@media (max-width: 520px) { .tabs { gap: 3px; } .tab { height: 48px; font-size: 10.5px; } .tab b { font-size: 14px; } .tab.newday { margin-left: 5px; } }
+@media (max-width: 900px) {
+  .tabs { display: grid; grid-template-columns: 1fr 1fr 84px; grid-template-areas: "r1 r2 list" "r3 r4 list"; gap: 4px; padding-bottom: 10px; }
+  .tab { height: 46px; } .tab.newday { margin-left: 0; }
+  .t-r1 { grid-area: r1; } .t-r2 { grid-area: r2; } .t-r3 { grid-area: r3; } .t-r4 { grid-area: r4; }
+  .t-list { grid-area: list; height: auto; }
+}
 .tab[aria-selected=true] b { color: var(--bg); }
 
 /* blocks */
@@ -394,8 +399,8 @@ function renderIntro(st) {
 function renderTabs(st) {
   $("#tabs").innerHTML = ROUTES.map(r => {
     const left = r.stops.filter(s => !st.visits[s.id]).length;
-    return `<button class="tab mono${r.day > 1 && ROUTES.find(x => x.day === r.day) === r ? " newday" : ""}" role="tab" aria-selected="${view === r.key}" data-view="${r.key}"><b>${esc(r.label)}</b>Day ${r.day} · ${left}</button>`;
-  }).join("") + `<button class="tab mono" role="tab" aria-selected="${view === "list"}" data-view="list"><b>List</b>${DATA.pool.length + st.added.length}</button>`;
+    return `<button class="tab mono t-${r.key}${r.day > 1 && ROUTES.find(x => x.day === r.day) === r ? " newday" : ""}" role="tab" aria-selected="${view === r.key}" data-view="${r.key}"><b>${esc(r.label)}</b>Day ${r.day} · ${left}</button>`;
+  }).join("") + `<button class="tab mono t-list" role="tab" aria-selected="${view === "list"}" data-view="list"><b>List</b>${DATA.pool.length + st.added.length}</button>`;
 }
 
 /* ---------- route view ---------- */
