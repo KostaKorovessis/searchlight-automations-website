@@ -93,7 +93,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   .tabs { display: grid; grid-template-columns: 1fr 1fr 84px; grid-template-areas: "r1 r2 list" "r3 r4 list"; gap: 4px; padding-bottom: 10px; }
   .tab { height: 46px; } .tab.newday { margin-left: 0; }
   .t-r1 { grid-area: r1; } .t-r2 { grid-area: r2; } .t-r3 { grid-area: r3; } .t-r4 { grid-area: r4; }
-  .tabs.two { grid-template-areas: "r1 r2 list"; }
+  .tabs.two { grid-template-areas: "r3 r3 list"; }
   .t-list { grid-area: list; height: auto; }
 }
 .tab[aria-selected=true] b { color: var(--bg); }
@@ -256,7 +256,7 @@ const poolIdx = {}; DATA.pool.forEach(p => { poolIdx[p.id] = p; });
 
 let server = { visits: {}, flags: {}, feedback: [], added: [] };
 let outbox = [];           // writes waiting for the server
-let view = "r1";
+let view = RKEYS[0];
 let listFilter = "all", listQuery = "", addWhen = "today";
 let openNote = null;       // id of the stop whose note box is open
 let lastSync = null, syncBad = false;
